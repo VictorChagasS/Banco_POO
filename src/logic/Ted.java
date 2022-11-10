@@ -1,5 +1,5 @@
 package logic;
 
 public interface Ted {
-    void pagarComTed(double valor, int agencia, int numeroConta, int cpf);    
+    void transferenciaTed(Conta origem, Banco bancoDestino, Conta contaDestino, double valor) throws Exception;    
 }

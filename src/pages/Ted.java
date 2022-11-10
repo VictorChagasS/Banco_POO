@@ -4,38 +4,43 @@
  */
 package pages;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import logic.*;
 import pages.componentes.*;
 
-/**
- *
- * @author victo
- */
 public class Ted extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PrincipalTela
-     */
+   
     public Ted() {
         initComponents();
     }
 
-   
-    @SuppressWarnings("unchecked")
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
        
         telaTotal = new javax.swing.JPanel();
-        voltar = new javax.swing.JLabel();
+        JPanel voltar = new Voltar("voltarV.png", 255,255, 255,"ted");
         JPanel menuEsq = new MenuLateral();
-        JPanel cpfcnpjInput = new InputFuncao("CPF/CNPJ","Insira o CPF Ou CNPJ");
-        JPanel agenciaInput = new InputFuncao("Agencia","Insira a agencia");
-        JPanel numeroContaInput = new InputFuncao("Numero da conta","Insira o numero da conta");
+        valor = new InputFuncao("Valor","Insira o valor da transferência");
+        agenciaInput = new InputFuncao("Agencia","Insira a agencia");
+        numeroContaInput = new InputFuncao("Numero da conta","Insira o numero da conta");
         JPanel tituloTed = new TituloFuncao("Ted", "ted.png");
         JPanel botaoTransferir = new BotaoFuncao("Transferir");
      
+
+        botaoTransferir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+             try {
+                ted(evt);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -44,9 +49,6 @@ public class Ted extends javax.swing.JFrame {
       
 
         telaTotal.setBackground(new java.awt.Color(255, 255, 255));
-
-        voltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/voltarV.png"))); // NOI18N
-
 
         javax.swing.GroupLayout telaTotalLayout = new javax.swing.GroupLayout(telaTotal);
         telaTotal.setLayout(telaTotalLayout);
@@ -60,14 +62,14 @@ public class Ted extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(tituloTed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(telaTotalLayout.createSequentialGroup()
-                        .addGap(125, 125, 125)
+                        .addGap(33, 33, 33)
                         .addComponent(botaoTransferir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(telaTotalLayout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(telaTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(numeroContaInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(agenciaInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cpfcnpjInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(numeroContaInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         telaTotalLayout.setVerticalGroup(
@@ -78,11 +80,11 @@ public class Ted extends javax.swing.JFrame {
                     .addComponent(voltar)
                     .addComponent(tituloTed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cpfcnpjInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(numeroContaInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(agenciaInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(numeroContaInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addComponent(botaoTransferir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(137, 137, 137))
@@ -102,59 +104,35 @@ public class Ted extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(menuEsq, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(telaTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(telaTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(926, 570));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
-
     public static void main(String args[]) {
-       
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ted.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ted.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ted.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ted.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+        new Ted().setVisible(true);
+    }
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Ted().setVisible(true);
-            }
-        });
+    private void ted(java.awt.event.MouseEvent evt) throws Exception {
+        String agenciaValor = agenciaInput.getValue();
+        String numeroContaValor = numeroContaInput.getValue();
+        Double valorValor = Double.parseDouble(valor.getValue()); 
+        Banco bancoDestino = SistemaBancos.encontrarBanco(agenciaValor);
+        Conta contaDestino = SistemaBancos.encontrarConta(agenciaValor, numeroContaValor);
+     
+        SistemaBancos.LoggedInUser.getBanco().transferenciaTed(SistemaBancos.LoggedInUser.getConta(), bancoDestino, contaDestino, valorValor);
+
     }
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
    
     private javax.swing.JPanel telaTotal;
-    private javax.swing.JLabel voltar;
+    private InputFuncao valor;
+    private InputFuncao agenciaInput;
+    private InputFuncao numeroContaInput;
     // End of variables declaration//GEN-END:variables
 }

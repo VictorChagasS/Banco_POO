@@ -1,29 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package pages;
 
 import javax.swing.JPanel;
 
+import logic.SistemaBancos;
 import pages.componentes.*;
 
-/**
- *
- * @author victo
- */
+
 public class Home extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PrincipalTela
-     */
     public Home() {
         initComponents();
     }
 
-   
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         JPanel menuEsq = new MenuLateral();
         JPanel ted = new FuncaoHome("Ted","cash-back.png");
@@ -41,7 +30,7 @@ public class Home extends javax.swing.JFrame {
         funcoes = new javax.swing.JPanel();
 
 
-        fechar.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        fechar.setFont(new java.awt.Font("Segoe UI", 0, 36));
         fechar.setForeground(new java.awt.Color(34, 180, 167));
         fechar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fechar.setText("x");
@@ -54,16 +43,16 @@ public class Home extends javax.swing.JFrame {
 
         telaTotal.setBackground(new java.awt.Color(255, 255, 255));
 
-        carteiraIcone.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
-        carteiraIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/carteira (1) 1.png"))); // NOI18N
+        carteiraIcone.setFont(new java.awt.Font("Segoe UI", 0, 32));
+        carteiraIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("icons/carteira (1) 1.png")));
         carteiraIcone.setText("R$");
 
-        saldo.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
-        saldo.setText("1000,00");
+        saldo.setFont(new java.awt.Font("Segoe UI", 1, 32));
+        saldo.setText(Double.toString(SistemaBancos.LoggedInUser.getConta().getSaldo()));
 
-        nomeBanco.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
-        nomeBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/bank (2) 1.png"))); // NOI18N
-        nomeBanco.setText(" Santander");
+        nomeBanco.setFont(new java.awt.Font("Segoe UI", 1, 32));
+        nomeBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("icons/bank (2) 1.png")));
+        nomeBanco.setText(SistemaBancos.LoggedInUser.getBanco().getNome());
 
         funcoes.setBackground(new java.awt.Color(255, 255, 255));
         funcoes.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(173, 188, 187), 2, true));
@@ -112,16 +101,16 @@ public class Home extends javax.swing.JFrame {
             telaTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(telaTotalLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(nomeBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(117, 117, 117)
+                .addComponent(nomeBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84)
                 .addComponent(carteiraIcone)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(saldo)
                 .addContainerGap(27, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, telaTotalLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(2,2)
                 .addComponent(funcoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(6,6))
         );
         telaTotalLayout.setVerticalGroup(
             telaTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,54 +134,25 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(menuEsq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(telaTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(menuEsq, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(telaTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+               )
         );
 
         setSize(new java.awt.Dimension(926, 570));
         setLocationRelativeTo(null);
-    }// </editor-fold>//GEN-END:initComponents
+    }
    
     public static void main(String args[]) {
-       
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-       
-
-        
-                             
-
-       
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Home().setVisible(true);
-            }
-        });
+        new Home().setVisible(true);
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-
+   
     private javax.swing.JPanel funcoes;
     private javax.swing.JLabel carteiraIcone;
     private javax.swing.JLabel saldo;

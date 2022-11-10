@@ -1,11 +1,14 @@
 package logic;
 
 public class PessoaJuridica extends Pessoa{
-    long CNPJ;
+    int CNPJ;
 
 
-    public PessoaJuridica(String nome, String email, long CNPJ) {
-        super(nome,email);
+    public PessoaJuridica(String nome, int CNPJ) {
+        super(nome);
         this.CNPJ = CNPJ;
+    }
+    public int getCNPJ(){
+        return CNPJ;
     }
 }

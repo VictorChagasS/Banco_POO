@@ -2,10 +2,40 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
+        <group name="Group 20221102-02:03:05">
             <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/Cadastro.java</file>
-            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/HomePage.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/Inicial.java</file>
             <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/PrincipalTela.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/CadastroJurídico.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/Home.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/SelecaoPix.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/componentes/BotaoFuncao.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/Login.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/componentes/CartaoInfo.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/Cartao.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/componentes/Input.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/CadastroJuridico.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/componentes/ComponentePix.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/CadastroChavePix.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/componentes/InputSenha.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/componentes/MenuLateral.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/TransPix.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/componentes/Fechar.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/Cadastro.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/Deposito.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/componentes/LabelCartao.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/TipoPessoa.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/componentes/FuncaoHome.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/logic/Ted.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/componentes/InputFuncao.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/Saque.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/Ted.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/componentes/TituloFuncao.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/componentes/TelaFuncional.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/Home.java</file>
+            <file>file:/C:/Users/victo/Desktop/BANK_SIMULATOR/JavaApplication1/src/pages/componentes/Voltar.java</file>
         </group>
     </open-files>
 </project-private>

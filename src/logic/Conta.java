@@ -1,30 +1,63 @@
 package logic;
 
-public abstract class Conta implements Pix, Ted{
+public abstract class Conta{
     
-    private int numeroConta;
-    private long saldo = 1000;
-
-    
-    private Banco banco;
+    private double saldo = 1000;
+    private String chavePix;
+    private String senha;
     private String tipoCliente;
- 
-    public Conta(int numeroConta, Banco banco, String senha) {
-        this.numeroConta = numeroConta;
-        this.banco = banco;
-    
+    private String email;
+    private String numeroConta;
+    private String numeroCartao;
+    private Pessoa pessoa;
+
+    public Conta(String senha, String email,Pessoa pessoa) {
+        this.numeroConta = RandomNumeroConta.gerarNumeroConta();
+        this.email = email;
+        this.senha = senha;
+        this.pessoa = pessoa;
+        this.numeroCartao = RandomNumeroConta.gerarNumeroCartao();
     }
 
    
+    public String getNumeroCartao() {
+        return numeroCartao;
+    }
+
+    public PessoaJuridica getPessoa() {
+        return (PessoaJuridica) pessoa;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+    public String getChave() {
+        return chavePix;
+    }
+
+
+    
+    public boolean verificar(String email, String senha)
+    {
+        return this.email.equals(email) && this.senha.equals(senha);
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
     public String getTipoCliente() {
         return tipoCliente;
     }
 
-    public int getNumeroConta() {
+    public String getNumeroConta() {
         return numeroConta;
     }
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
 
-    public long getSaldo() {
+    public double getSaldo() {
         return saldo;
     }
 
@@ -32,41 +65,15 @@ public abstract class Conta implements Pix, Ted{
         this.tipoCliente = tipoCliente;
     }
 
-    public void setNumeroConta( int numeroConta) {
-        this.numeroConta = numeroConta;
+    public void setChave(String chavePix) {
+        this.chavePix = chavePix;
     }
 
-    public void setSaldo(long saldo) {
-        this.saldo = saldo;
-    }
+   
+
+   
 
 
-    public void deposito(long valor){
-        if (valor > 0){
-           this.saldo += valor;
-        } 
-        else {
-            System.out.println("ERRO");
-        }
-    }
-
-    public void saque(long valor) {
-        if (valor > 0 && this.saldo >= valor) {
-            this.saldo -= valor;
-        }
-    }
-
-
-
-    @Override 
-    public void cadastrarChave(String chave) {
-        System.out.println("Cadastro matueéachavedomundo");
-    }
-
-    @Override 
-    public void mostrarChave() {
-        System.out.println("matueéachavedomundo");
-    }
 
 
     
