@@ -1,11 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package pages;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import logic.Banco;
+import logic.Conta;
+import logic.ContaPF;
+import logic.ContaPJ;
+import logic.SistemaBancos;
 import pages.componentes.*;
 
 /**
@@ -23,13 +25,23 @@ public class TransPix extends javax.swing.JFrame {
 
        
         telaTotal = new javax.swing.JPanel();
-        JPanel voltar = new Voltar("voltarV.png", 255,255, 255,"ted");
+        JPanel voltar = new Voltar("voltarV.png", 255,255, 255,"TransPix");
         JPanel menuEsq = new MenuLateral();
-        JPanel cpfcnpjInput = new InputFuncao("Chave do destinatário","Insira a chave");
-        JPanel agenciaInput = new InputFuncao("Valor","Insira o valor");
+        chave = new InputFuncao("Chave do destinatário","Insira a chave");
+        valor = new InputFuncao("Valor","Insira o valor");
         JPanel tituloTransPix = new TituloFuncao("Pix", "pix.png");
         JPanel botaoTransferir = new BotaoFuncao("Transferir");
      
+        botaoTransferir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                try {
+                    pixPagar(evt);
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+                   
+                }
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -56,8 +68,8 @@ public class TransPix extends javax.swing.JFrame {
                     .addGroup(telaTotalLayout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(telaTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(agenciaInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cpfcnpjInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         telaTotalLayout.setVerticalGroup(
@@ -68,9 +80,9 @@ public class TransPix extends javax.swing.JFrame {
                     .addComponent(voltar)
                     .addComponent(tituloTransPix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cpfcnpjInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(chave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(agenciaInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botaoTransferir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(137, 137, 137))
@@ -102,11 +114,30 @@ public class TransPix extends javax.swing.JFrame {
         new TransPix().setVisible(true);
     }
 
+
+    private void pixPagar(java.awt.event.MouseEvent evt) throws Exception {//GEN-FIRST:event_jPanel2MouseClicked
+       String chaveValor = chave.getValue();
+       Double valorValor = Double.parseDouble(valor.getValue());
+       Conta contaDestino = SistemaBancos.encontrarChavePix(chaveValor).conta;
+       Banco bancoDestino = SistemaBancos.encontrarChavePix(chaveValor).banco;
+       if (SistemaBancos.LoggedInUser.getConta() instanceof ContaPF){
+        System.out.print("PF");
+       SistemaBancos.LoggedInUser.getBanco().pagarComPix((ContaPF) SistemaBancos.LoggedInUser.getConta(),valorValor, contaDestino, bancoDestino);
+       }
+       else {
+        System.out.print("PJ");
+        SistemaBancos.LoggedInUser.getBanco().pagarComPix((ContaPJ) SistemaBancos.LoggedInUser.getConta(),valorValor, contaDestino, bancoDestino);
+       }
+ 
+
+}
     
  
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel telaTotal;
+    private InputFuncao chave;
+    private InputFuncao valor;
     // End of variables declaration//GEN-END:variables
 }

@@ -50,7 +50,7 @@ public class Voltar extends JPanel {
     
     private void voltar(java.awt.event.MouseEvent evt,String tela) {//GEN-FIRST:event_criarContaMouseClicked
         switch(tela){
-            case "telaPIX":
+            case "TransPix":
             case "cadastroPix":
                 SelecaoPix pix = new SelecaoPix();
                 SwingUtilities.getWindowAncestor(this).dispose();

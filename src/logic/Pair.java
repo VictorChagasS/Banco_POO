@@ -1,10 +1,10 @@
 package logic;
 
-public class Pair<S, T> {
-    public S banco;
-    public T conta;
+public class Pair {
+    public  Banco banco;
+    public Conta conta;
 
-    public Pair(S banco, T conta) { 
+    public Pair(Banco banco, Conta conta) { 
         this.banco = banco;
         this.conta = conta;
     }

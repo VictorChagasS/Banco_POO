@@ -39,7 +39,7 @@ public class MenuLateral extends JPanel {
         nome.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         nome.setForeground(new java.awt.Color(255, 255, 255));
         nome.setHorizontalAlignment(SwingConstants.CENTER);
-        nome.setText(SistemaBancos.LoggedInUser.getConta().getEmail());
+        nome.setText(SistemaBancos.LoggedInUser.getConta().getNome());
 
         icone.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         icone.setForeground(new java.awt.Color(255, 255, 255));

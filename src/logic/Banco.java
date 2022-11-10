@@ -6,6 +6,7 @@ public class Banco implements Ted, Pix{
     private String agencia;
     private double taxaPIXPJ;
     private ArrayList<Conta> clientes = new ArrayList<Conta>();
+    public Object value;
 
     public Banco(String bankName, String agencia, double taxaPIXPJ){
         this.bankName = bankName;
@@ -60,7 +61,18 @@ public class Banco implements Ted, Pix{
         return conta.getChave();
     }
 
-    public void pagarComPix(double valor, String chave) {}
+    @Override
+    public void pagarComPix(ContaPF origem, double valor, Conta contaDestino, Banco bancoDestino) throws Exception {
+            saque(origem, valor);
+            bancoDestino.deposito(contaDestino, valor);
+    }
+
+    @Override
+    public void pagarComPix(ContaPJ origem, double valor, Conta contaDestino, Banco bancoDestino) throws Exception {
+            saque(origem, valor);
+            bancoDestino.deposito(contaDestino, valor- ((valor)*taxaPIXPJ/100)) ;
+    }
+    
     @Override
     public void transferenciaTed(Conta origem,Banco bancoDestino, Conta contaDestino, double valor) throws Exception{
         saque(origem,valor);
@@ -69,7 +81,7 @@ public class Banco implements Ted, Pix{
     }
     
   
-    public void addInBank(Conta conta) {
+    public void addInBank(Conta conta) throws Exception {
         if (encontrarConta(conta.getNumeroConta()) != null){
             System.out.println("Conta já existente no banco");
         }
@@ -83,16 +95,20 @@ public class Banco implements Ted, Pix{
     }
 
    
-    public Conta encontrarConta(String numeroConta) {
+    public Conta encontrarConta(String numeroContaouChave){
         Iterator<Conta> clientesIterator = clientes.iterator();
         while(clientesIterator.hasNext()) {
             Conta cliente = clientesIterator.next();
-            if (cliente.getNumeroConta().equals(numeroConta)) {
+            if ( (cliente.getNumeroConta().equals(numeroContaouChave)) || (cliente.getChave().equals(numeroContaouChave))) {
                 return cliente;
             }
         }
         return null;
+        
+       
+        
     }
+
 
 
 

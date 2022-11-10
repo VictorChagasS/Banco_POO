@@ -188,8 +188,7 @@ public class Cadastro extends JFrame {
         int dataNascValor = Integer.parseInt(dataNasc.getValue());
 
         Login login = new Login();
-        PessoaFisica pessoaPF = new PessoaFisica(nomeValor,dataNascValor,cpfValor); 
-        ContaPF contaPF = new ContaPF(pessoaPF, senhaValor, emailValor);
+        ContaPF contaPF = new ContaPF(nomeValor,cpfValor, senhaValor, emailValor,dataNascValor);
         try {
             SistemaBancos.register(contaPF, SistemaBancos.encontrarBanco("1010-1") );
             this.dispose();

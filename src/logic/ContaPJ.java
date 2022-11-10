@@ -1,11 +1,11 @@
 package logic;
 
 public class ContaPJ extends Conta {
-    private PessoaJuridica pessoa;
+    int cnpj;
 
-    public ContaPJ(PessoaJuridica pessoa, String senha,String email ) {
-        super(senha,email, pessoa);
-        this.setTipoCliente("PJ");
+    public ContaPJ(String nome,int cnpj, String senha,String email ) {
+        super(nome,senha,email);
+        this.cnpj = cnpj;
     }
 
     

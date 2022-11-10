@@ -3,29 +3,31 @@ package logic;
 public abstract class Conta{
     
     private double saldo = 1000;
-    private String chavePix;
+    private String chavePix = null;
     private String senha;
-    private String tipoCliente;
+    private String tipoConta;
     private String email;
     private String numeroConta;
-    private String numeroCartao;
-    private Pessoa pessoa;
+    private Cartao cartao;
+    private String nome;
+    
 
-    public Conta(String senha, String email,Pessoa pessoa) {
+    public Conta(String nome, String senha, String email) {
+        this.nome = nome;
         this.numeroConta = RandomNumeroConta.gerarNumeroConta();
         this.email = email;
         this.senha = senha;
-        this.pessoa = pessoa;
-        this.numeroCartao = RandomNumeroConta.gerarNumeroCartao();
+        cartao = new Cartao();
+        cartao.setNumeroCartao(RandomNumeroConta.gerarNumeroCartao());
     }
 
-   
-    public String getNumeroCartao() {
-        return numeroCartao;
+    public Cartao getCartao() {
+        return cartao;
     }
+  
 
-    public PessoaJuridica getPessoa() {
-        return (PessoaJuridica) pessoa;
+    public String getNome() {
+        return nome;
     }
 
     public String getEmail() {
@@ -46,8 +48,8 @@ public abstract class Conta{
         return senha;
     }
 
-    public String getTipoCliente() {
-        return tipoCliente;
+    public String getTipoConta() {
+        return tipoConta;
     }
 
     public String getNumeroConta() {
@@ -62,7 +64,11 @@ public abstract class Conta{
     }
 
     public void setTipoCliente(String tipoCliente) {
-        this.tipoCliente = tipoCliente;
+        this.tipoConta = tipoCliente;
+    }
+
+    public Integer getDataNasc(){
+        return null;
     }
 
     public void setChave(String chavePix) {

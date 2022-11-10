@@ -15,7 +15,7 @@ public class CartaoInfo extends JPanel {
     private void initComponents() {
 
         JPanel titular = new LabelCartao("Nome do titular","");
-        JPanel numeroCartao =  new LabelCartao("Numero do cartao",SistemaBancos.LoggedInUser.getConta().getNumeroCartao());
+        JPanel numeroCartao =  new LabelCartao("Numero do cartao",SistemaBancos.LoggedInUser.getConta().getCartao().getNumeroCartao());
         JPanel validade =  new LabelCartao("Validade","");
         JPanel cvv =  new LabelCartao("CVV","");
         JPanel limite =  new LabelCartao("Limite do cartao","");
