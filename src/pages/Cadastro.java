@@ -182,7 +182,7 @@ public class Cadastro extends JFrame {
     
     private void criarContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarContaActionPerformed
         String nomeValor = nome.getValue();
-        int cpfValor = Integer.parseInt(cpf.getValue());
+        long cpfValor = Long.parseLong(cpf.getValue());
         String emailValor = email.getValue();
         String senhaValor =senha.getValue();
         int dataNascValor = Integer.parseInt(dataNasc.getValue());

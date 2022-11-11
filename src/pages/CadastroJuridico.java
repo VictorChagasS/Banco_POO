@@ -1,7 +1,6 @@
 package pages;
 import javax.swing.*;
 
-import logic.ContaPF;
 import logic.ContaPJ;
 import logic.SistemaBancos;
 import pages.componentes.*;
@@ -56,13 +55,7 @@ public class CadastroJuridico extends JFrame {
         criarConta.setFocusPainted(false);
         criarConta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                criarContaActionPerformed(evt);
-            }
-        });
-
-        criarConta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                criarContaActionPerformed(evt);
+                criarContaPJ(evt);
             }
         });
 
@@ -178,9 +171,9 @@ public class CadastroJuridico extends JFrame {
 
    
      
-    private void criarContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarContaActionPerformed
+    private void criarContaPJ(java.awt.event.ActionEvent evt) {
         String nomeValor = nome.getValue();
-        int cnpjValor = Integer.parseInt(cnpj.getValue());
+        long cnpjValor = Long.parseLong(cnpj.getValue());
         String emailValor = email.getValue();
         String senhaValor =senha.getValue();
 
@@ -190,7 +183,7 @@ public class CadastroJuridico extends JFrame {
             SistemaBancos.register(conta, SistemaBancos.encontrarBanco("a") );
             this.dispose();
             login.setVisible(true);
-            JOptionPane.showMessageDialog(this,"Cadastro Jurídico realizado com sucesso" , "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this,"Cadastro Jurídica realizado com sucesso" , "Sucesso", JOptionPane.INFORMATION_MESSAGE);
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);

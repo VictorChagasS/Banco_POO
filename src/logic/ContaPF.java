@@ -1,11 +1,11 @@
 package logic;
 
 public class ContaPF extends Conta {
-    int cpf;
+    long cpf;
     int dataNasc;
     
 
-    public ContaPF(String nome,int cpf, String senha, String email,int dataNasc ) {
+    public ContaPF(String nome,long cpf, String senha, String email,int dataNasc ) {
         super(nome,senha,email);
         this.cpf = cpf;
         this.dataNasc = dataNasc;
@@ -17,7 +17,7 @@ public class ContaPF extends Conta {
         return dataNasc;
     }
 
-    public int getCPF(){
+    public long getCPF(){
         return cpf;
     }
     
