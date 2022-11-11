@@ -3,7 +3,7 @@ package logic;
 public abstract class Conta{
     
     private double saldo = 1000;
-    private String chavePix = "";
+    private String chavePix;
     private String senha;
     private String tipoConta;
     private String email;
@@ -14,6 +14,7 @@ public abstract class Conta{
 
     public Conta(String nome, String senha, String email) {
         this.nome = nome;
+        this.chavePix = email;
         this.numeroConta = RandomNumeroConta.gerarNumeroConta();
         this.email = email;
         this.senha = senha;
