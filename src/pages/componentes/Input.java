@@ -28,7 +28,7 @@ public class Input extends JPanel {
 
         nomeTexto.setBackground(new java.awt.Color(255, 255, 255));
         nomeTexto.setFont(new java.awt.Font("Segoe UI", 0, 18));
-        nomeTexto.setIcon(new ImageIcon(getClass().getResource("../icons/"+icone))); // NOI18N
+        nomeTexto.setIcon(new ImageIcon(getClass().getResource("/pages/icons/"+icone))); // NOI18N
         nomeTexto.setText(nome);
 
 
