@@ -99,12 +99,12 @@ public class FuncaoHome extends javax.swing.JPanel {
             saque.setVisible(true);
             break;
         
-        case "Deposito":
+        case "Depósito":
             Deposito deposito = new Deposito();
             SwingUtilities.getWindowAncestor(this).dispose();
             deposito.setVisible(true);
             break;
-        case "Cartao":
+        case "Cartão":
             Cartao cartao = new Cartao();
             SwingUtilities.getWindowAncestor(this).dispose();
             cartao.setVisible(true);
