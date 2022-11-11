@@ -1,18 +1,10 @@
 package pages;
 
 import pages.componentes.*;
-
-import java.util.ArrayList;
-
 import javax.swing.*;
-
 import logic.SistemaBancos;
-import logic.Transacao;
 
-/**
- *
- * @author victo
- */
+
 public class Extrato extends javax.swing.JFrame {
 
     public Extrato() {
@@ -22,30 +14,15 @@ public class Extrato extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel4 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         MenuLateral menuEsq = new MenuLateral();
-        nome = new javax.swing.JLabel();
-        icone = new javax.swing.JLabel();
-        agencia = new javax.swing.JLabel();
-        numConta = new javax.swing.JLabel();
-        sair = new javax.swing.JLabel();
         telaTotal = new javax.swing.JPanel();
         tituloFuncao = new TituloFuncao("Extrato", "extrato.png");
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         voltar = new Voltar("voltarV.png",255, 255, 255,"Extrato");
         jPanel1 = new PainelTransferencias(SistemaBancos.LoggedInUser.getConta().getTransacoes());
-
-        
-
-    
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
-
         telaTotal.setBackground(new java.awt.Color(255, 255, 255));
 
     
@@ -110,20 +87,9 @@ public class Extrato extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel agencia;
-    private javax.swing.JLabel icone;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel5;
     private JPanel voltar;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     PainelTransferencias jPanel1;
     private javax.swing.JPanel tituloFuncao;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel menuEsq;
-    private javax.swing.JLabel nome;
-    private javax.swing.JLabel numConta;
-    private javax.swing.JLabel sair;
     private javax.swing.JPanel telaTotal;
     // End of variables declaration//GEN-END:variables
 }

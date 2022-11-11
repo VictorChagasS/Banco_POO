@@ -3,8 +3,8 @@ package pages;
 import pages.componentes.*;
 import javax.swing.*;
 
+import logic.LoggedInUser;
 import logic.SistemaBancos;
-import logic.SistemaBancos.*;
 
 
 public class Login extends JFrame {

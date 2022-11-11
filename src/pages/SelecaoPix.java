@@ -96,18 +96,8 @@ public class SelecaoPix extends JFrame {
         setLocationRelativeTo(null);
     }
     public static void main(String args[]) {
-      
-
-        /* Create and display the form */
                 new SelecaoPix().setVisible(true);
-       
     }
-
-    private void voltarClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_criarContaMouseClicked
-        Home home = new Home();
-        this.dispose();
-        home.setVisible(true);
-        }
 
     private void transferirClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_criarContaMouseClicked
         TransPix transPix = new TransPix();

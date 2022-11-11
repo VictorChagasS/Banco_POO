@@ -4,7 +4,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import logic.Banco;
-import logic.Conta;
 import logic.ContaPF;
 import logic.ContaPJ;
 import logic.SistemaBancos;

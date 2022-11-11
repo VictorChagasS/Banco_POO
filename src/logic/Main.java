@@ -6,18 +6,13 @@ public class Main{
     public static void main(String[] args) throws Exception {
             
                 new Login().setVisible(true);
-              
-
-        
     
-
         Banco sant = new Banco("Santander", "033", 3);
         Banco brad = new Banco("Bradesco", "237", 3);
         Banco itau = new Banco("Itaú", "0500", 3);
         SistemaBancos.add(sant);
         SistemaBancos.add(brad);
         SistemaBancos.add(itau);
-
 
        
         ContaPF victor = new ContaPF("Victor Chagas","01234567891","123","victor@santander.com",28112002);
@@ -29,16 +24,6 @@ public class Main{
       
         SistemaBancos.register(victor, sant);
         SistemaBancos.register(gui, itau);
-
-       
-       
-        
-
- 
-      
-          
-
-
             
     }
 }

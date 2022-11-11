@@ -89,9 +89,6 @@ public class Cartao extends JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tedMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tedMouseClicked
 
     public static void main(String args[]) {
        

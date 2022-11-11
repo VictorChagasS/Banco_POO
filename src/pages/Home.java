@@ -2,9 +2,7 @@
 package pages;
 
 import java.text.DecimalFormat;
-
 import javax.swing.JPanel;
-
 import logic.SistemaBancos;
 import pages.componentes.*;
 
@@ -20,9 +18,9 @@ public class Home extends javax.swing.JFrame {
         JPanel ted = new FuncaoHome("Ted","cash-back.png");
         JPanel pix = new FuncaoHome("Pix","pix.png");
         JPanel extrato = new FuncaoHome("Extrato","extrato.png");
-        JPanel cartao = new FuncaoHome("Cartao", "cartao.png");
+        JPanel cartao = new FuncaoHome("Cartão", "cartao.png");
         JPanel saque = new FuncaoHome("Saque", "saque.png");
-        JPanel deposito = new FuncaoHome("Deposito", "real.png");
+        JPanel deposito = new FuncaoHome("Depósito", "real.png");
     
         fechar = new javax.swing.JLabel();
         telaTotal = new javax.swing.JPanel();
@@ -61,7 +59,6 @@ public class Home extends javax.swing.JFrame {
         funcoes.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(173, 188, 187), 2, true));
         funcoes.setForeground(new java.awt.Color(255, 255, 255));
 
-    
        
         javax.swing.GroupLayout funcoesLayout = new javax.swing.GroupLayout(funcoes);
         funcoes.setLayout(funcoesLayout);

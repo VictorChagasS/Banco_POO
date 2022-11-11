@@ -4,6 +4,7 @@ import java.util.*;
 
 
 public class SistemaBancos{
+    public static LoggedInUser LoggedInUser;
     public static HashMap<String,Pair> contasRegistradas = new HashMap<String,Pair>();
     public static ArrayList<Banco> bancos = new ArrayList<Banco>();
 
@@ -31,8 +32,6 @@ public class SistemaBancos{
     }
 
     
-
-
     public static LoggedInUser logIn(String name, String password) throws Exception 
     {
         if(!contasRegistradas.containsKey(name)) {
@@ -43,38 +42,11 @@ public class SistemaBancos{
             System.out.println("User " + name + " logged in succesfully");
             return new  LoggedInUser((contasRegistradas.get(name).banco),(contasRegistradas.get(name).conta));
             
-            
         }
             throw new Exception("Crendeciais erradas");
     }
 
-    public static class LoggedInUser
-    {
-        private static Conta loggedAcount;
-        private static Banco loggedBank;
-        
-        public static Conta getConta() {
-            return loggedAcount;
-        }
-        
-
-        public static Banco getBanco() {
-            return loggedBank;
-        }
-
-        LoggedInUser(Banco banco, Conta account)
-        {
-            loggedAcount = account;
-            loggedBank = banco;
-   
-        }
-
-        public static void deslogar() {
-            loggedAcount = null;
-        }
-       
-    }
-
+    
     public static Conta encontrarConta(String agencia, String numeroConta_chave ) throws Exception {
         Banco bancoAchado = encontrarBanco(agencia);  
         return bancoAchado.encontrarConta(numeroConta_chave);
@@ -91,7 +63,6 @@ public class SistemaBancos{
          throw new Exception("Chave Pix nao corresponde");
     }
 
-   
 
     public static boolean checkBanco(String agencia) {
         Iterator<Banco> bancosIterator = bancos.iterator();
