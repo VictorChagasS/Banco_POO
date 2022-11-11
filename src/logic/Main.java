@@ -28,13 +28,9 @@ public class Main{
        
        System.out.println(i1.getNumeroConta());
       
-        SistemaBancos.register(gui1, banco3);
-        SistemaBancos.register(i1, banco1);
+        SistemaBancos.register(gui1, banco2);
+        SistemaBancos.register(i1, banco3);
 
-        SistemaBancos.logIn("g", "j");
-       
-        SistemaBancos.LoggedInUser.deslogar();
-        SistemaBancos.logIn("j", "1");
        
        
         

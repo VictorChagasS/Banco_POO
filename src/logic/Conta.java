@@ -3,7 +3,7 @@ package logic;
 public abstract class Conta{
     
     private double saldo = 1000;
-    private String chavePix = null;
+    private String chavePix = "";
     private String senha;
     private String tipoConta;
     private String email;

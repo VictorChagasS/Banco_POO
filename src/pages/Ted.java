@@ -38,6 +38,7 @@ public class Ted extends javax.swing.JFrame {
                 ted(evt);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+                System.out.println("434");
             }
             }
         });
@@ -122,7 +123,9 @@ public class Ted extends javax.swing.JFrame {
         Double valorValor = Double.parseDouble(valor.getValue()); 
         Banco bancoDestino = SistemaBancos.encontrarBanco(agenciaValor);
         Conta contaDestino = SistemaBancos.encontrarConta(agenciaValor, numeroContaValor);
-     
+        System.out.println(bancoDestino);
+        System.out.println(contaDestino);
+
         SistemaBancos.LoggedInUser.getBanco().transferenciaTed(SistemaBancos.LoggedInUser.getConta(), bancoDestino, contaDestino, valorValor);
 
     }

@@ -69,8 +69,8 @@ public class Banco implements Ted, Pix{
 
     @Override
     public void pagarComPix(ContaPJ origem, double valor, Conta contaDestino, Banco bancoDestino) throws Exception {
-            saque(origem, valor);
-            bancoDestino.deposito(contaDestino, valor- ((valor)*taxaPIXPJ/100)) ;
+            saque(origem, valor - valor- ((valor)*taxaPIXPJ/100));
+            bancoDestino.deposito(contaDestino,valor);
     }
     
     @Override
