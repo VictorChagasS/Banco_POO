@@ -46,12 +46,12 @@ public class Login extends JFrame {
         textoBanco.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         textoBanco.setForeground(new java.awt.Color(255, 255, 255));
         textoBanco.setHorizontalAlignment(SwingConstants.CENTER);
-        textoBanco.setText("Sistema Bancario");
+        textoBanco.setText("Sistema Bancário");
 
         textoBemvindoBanco.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         textoBemvindoBanco.setForeground(new java.awt.Color(255, 255, 255));
         textoBemvindoBanco.setHorizontalAlignment(SwingConstants.CENTER);
-        textoBemvindoBanco.setText(" Bem vindo!");
+        textoBemvindoBanco.setText("Seja bem vindo!");
 
         GroupLayout telaBoasVindasLayout = new GroupLayout(telaBoasVindas);
         telaBoasVindas.setLayout(telaBoasVindasLayout);
