@@ -15,10 +15,10 @@ public class CartaoInfo extends JPanel {
     private void initComponents() {
 
         JPanel titular = new LabelCartao("Nome do titular","");
-        JPanel numeroCartao =  new LabelCartao("Numero do cartao",SistemaBancos.LoggedInUser.getConta().getCartao().getNumeroCartao());
+        JPanel numeroCartao =  new LabelCartao("Numero do cartão",SistemaBancos.LoggedInUser.getConta().getCartao().getNumeroCartao());
         JPanel validade =  new LabelCartao("Validade","");
         JPanel cvv =  new LabelCartao("CVV","");
-        JPanel limite =  new LabelCartao("Limite do cartao","");
+        JPanel limite =  new LabelCartao("Limite do cartão","");
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(new javax.swing.border.LineBorder(new java.awt.Color(173, 188, 187), 2, true));

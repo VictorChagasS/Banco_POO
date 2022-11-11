@@ -17,7 +17,7 @@ public class Cartao extends JFrame {
       
         telaTotal = new JPanel();
         JPanel voltar = new Voltar("voltarV.png", 255,255, 255,"cartao");
-        tituloCartao = new TituloFuncao("Cartao", "cartao.png");
+        tituloCartao = new TituloFuncao("Cartão", "cartao.png");
         TituloInfoCartao = new JLabel();
         JPanel cartaoInfo = new CartaoInfo();
     
