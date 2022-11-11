@@ -40,7 +40,8 @@ public class SistemaBancos{
         if(contasRegistradas.get(name).conta.verificar(name, password))
         {
             System.out.println("User " + name + " logged in succesfully");
-            return new  LoggedInUser((contasRegistradas.get(name).banco),(contasRegistradas.get(name).conta));
+            LoggedInUser = new LoggedInUser((contasRegistradas.get(name).banco),(contasRegistradas.get(name).conta));
+            return LoggedInUser;
             
         }
             throw new Exception("Crendeciais erradas");
