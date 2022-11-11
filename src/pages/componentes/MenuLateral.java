@@ -60,7 +60,7 @@ public class MenuLateral extends JPanel {
         icone.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         icone.setForeground(new java.awt.Color(255, 255, 255));
         icone.setHorizontalAlignment(SwingConstants.CENTER);
-        icone.setIcon(new ImageIcon(getClass().getResource("../icons/userMenor.png"))); // NOI18N
+        icone.setIcon(new ImageIcon(getClass().getResource("/pages/icons/userMenor.png"))); // NOI18N
 
         agencia.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         agencia.setForeground(new java.awt.Color(255, 255, 255));
@@ -75,7 +75,7 @@ public class MenuLateral extends JPanel {
         sair.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         sair.setForeground(new java.awt.Color(255, 255, 255));
         sair.setHorizontalAlignment(SwingConstants.CENTER);
-        sair.setIcon(new ImageIcon(getClass().getResource("../icons/sair (1).png"))); // NOI18N
+        sair.setIcon(new ImageIcon(getClass().getResource("/pages/icons/sair (1).png"))); // NOI18N
         sair.setText("Sair");
         sair.setMaximumSize(new java.awt.Dimension(100, 100));
         sair.setPreferredSize(new java.awt.Dimension(343, 256));
