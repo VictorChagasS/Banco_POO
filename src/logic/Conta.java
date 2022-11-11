@@ -1,14 +1,16 @@
 package logic;
 
+import java.util.ArrayList;
+
 public abstract class Conta{
     
     private double saldo = 1000;
     private String chavePix;
     private String senha;
-    private String tipoConta;
     private String email;
     private String numeroConta;
     private Cartao cartao;
+    private ArrayList<Transacao> transacoes = new ArrayList<Transacao>();
     private String nome;
     
 
@@ -26,6 +28,9 @@ public abstract class Conta{
         return cartao;
     }
   
+    public void addTransacao(Transacao transacao) {
+        transacoes.add(transacao);
+    }
 
     public String getNome() {
         return nome;
@@ -49,10 +54,6 @@ public abstract class Conta{
         return senha;
     }
 
-    public String getTipoConta() {
-        return tipoConta;
-    }
-
     public String getNumeroConta() {
         return numeroConta;
     }
@@ -64,16 +65,15 @@ public abstract class Conta{
         return saldo;
     }
 
-    public void setTipoCliente(String tipoCliente) {
-        this.tipoConta = tipoCliente;
-    }
-
     public Integer getDataNasc(){
         return null;
     }
 
     public void setChave(String chavePix) {
         this.chavePix = chavePix;
+    }
+    public ArrayList<Transacao> getTransacoes() {
+        return transacoes;
     }
 
    

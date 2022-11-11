@@ -1,13 +1,16 @@
 package pages.componentes;
 
 import javax.swing.*;
-import java.awt.event.*;
+import javax.swing.text.*;
+
+import java.text.ParseException;
 
 public class Input extends JPanel {
 
    
     public Input(String nome, String icone) {
         initComponents(nome,icone);
+        formatar(nome);
     }
 
     public String getValue(){
@@ -19,7 +22,7 @@ public class Input extends JPanel {
 
         nomeTexto = new JLabel();
         linhaNumConta = new JSeparator();
-        inputNumConta = new JTextField();
+        inputNumConta = new JFormattedTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -61,12 +64,23 @@ public class Input extends JPanel {
         );
     }
 
+    private void formatar(String campo) {
+        try {
+        MaskFormatter mask = new MaskFormatter("##/##/####");
+        if(campo == "Data de nascimento"){
+        mask.install(inputNumConta);}
+        }
+        catch(ParseException e) {
+
+        }
+    }
+
     
     
    
       // </editor-fold>//GEN-END:initComponents
       // Variables declaration - do not modify//GEN-BEGIN:variables
-    private JTextField inputNumConta;
+    private JFormattedTextField inputNumConta;
     private JSeparator linhaNumConta;
     private JLabel nomeTexto;
     // End of variables declaration//GEN-END:variables

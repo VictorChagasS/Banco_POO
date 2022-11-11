@@ -88,6 +88,11 @@ public class FuncaoHome extends javax.swing.JPanel {
             SwingUtilities.getWindowAncestor(this).dispose();
             pix.setVisible(true);
             break;
+        case "Extrato":
+            Extrato extrato = new Extrato();
+            SwingUtilities.getWindowAncestor(this).dispose();
+            extrato.setVisible(true);
+            break;
         case "Saque":
             Saque saque = new Saque();
             SwingUtilities.getWindowAncestor(this).dispose();

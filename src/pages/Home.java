@@ -1,6 +1,8 @@
 
 package pages;
 
+import java.text.DecimalFormat;
+
 import javax.swing.JPanel;
 
 import logic.SistemaBancos;
@@ -48,7 +50,8 @@ public class Home extends javax.swing.JFrame {
         carteiraIcone.setText("R$");
 
         saldo.setFont(new java.awt.Font("Segoe UI", 1, 32));
-        saldo.setText(Double.toString(SistemaBancos.LoggedInUser.getConta().getSaldo()));
+        String saldoValor =new DecimalFormat("###,###.00").format(SistemaBancos.LoggedInUser.getConta().getSaldo());
+        saldo.setText(saldoValor);
 
         nomeBanco.setFont(new java.awt.Font("Segoe UI", 1, 32));
         nomeBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("icons/bank (2) 1.png")));
@@ -102,7 +105,7 @@ public class Home extends javax.swing.JFrame {
             .addGroup(telaTotalLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(nomeBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84)
+                .addGap(60-10*(saldoValor.length()-7), 60-10*(saldoValor.length()-7), 60-10*(saldoValor.length()-7))
                 .addComponent(carteiraIcone)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(saldo)

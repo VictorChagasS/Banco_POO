@@ -2,6 +2,7 @@ package pages.componentes;
 
 import javax.swing.*;
 
+import logic.ContaPF;
 import logic.SistemaBancos;
 import pages.Login;
 
@@ -19,6 +20,7 @@ public class MenuLateral extends JPanel {
 
         menuEsq = new JPanel();
         nome = new JLabel();
+        tipoConta = new JLabel();
         icone = new JLabel();
         agencia = new JLabel();
         numConta = new JLabel();
@@ -33,8 +35,22 @@ public class MenuLateral extends JPanel {
             }
         });
 
+        String tipoContaValor;
+
+        if (SistemaBancos.LoggedInUser.getConta() instanceof ContaPF) {
+            tipoContaValor = "Conta Física";
+        }
+        else {
+            tipoContaValor = "Conta Jurídica";
+        }
+
 
         menuEsq.setBackground(new java.awt.Color(34, 180, 167));
+
+        tipoConta.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        tipoConta.setForeground(new java.awt.Color(255, 255, 255));
+        tipoConta.setHorizontalAlignment(SwingConstants.CENTER);
+        tipoConta.setText(tipoContaValor);
 
         nome.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         nome.setForeground(new java.awt.Color(255, 255, 255));
@@ -73,6 +89,7 @@ public class MenuLateral extends JPanel {
                 .addContainerGap()
                 .addGroup(menuEsqLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addComponent(nome, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tipoConta, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(agencia, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(menuEsqLayout.createSequentialGroup()
                         .addComponent(sair, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)
@@ -80,9 +97,9 @@ public class MenuLateral extends JPanel {
                 .addContainerGap())
             .addGroup(menuEsqLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(menuEsqLayout.createSequentialGroup()
-                    .addContainerGap()
+                  
                     .addComponent(numConta, GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
-                    .addContainerGap()))
+                   ))
         );
         menuEsqLayout.setVerticalGroup(
             menuEsqLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -91,14 +108,16 @@ public class MenuLateral extends JPanel {
                 .addComponent(icone)
                 .addGap(18, 18, 18)
                 .addComponent(nome)
-                .addGap(63, 63, 63)
+                .addGap(0, 0, 0)
+                .addComponent(tipoConta)
+                .addGap(30, 30, 30)
                 .addComponent(agencia)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(sair, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
             .addGroup(menuEsqLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(menuEsqLayout.createSequentialGroup()
-                    .addGap(210, 210, 210)
+                    .addGap(270, 270, 270)
                     .addComponent(numConta)
                     .addContainerGap(328, Short.MAX_VALUE)))
         );
@@ -127,6 +146,7 @@ public class MenuLateral extends JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private JLabel tipoConta;
     private JLabel agencia;
     private JLabel icone;
     private JPanel menuEsq;

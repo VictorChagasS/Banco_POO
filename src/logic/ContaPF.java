@@ -9,7 +9,6 @@ public class ContaPF extends Conta {
         super(nome,senha,email);
         this.cpf = cpf;
         this.dataNasc = dataNasc;
-        setTipoCliente("PF");
     }
 
     @Override

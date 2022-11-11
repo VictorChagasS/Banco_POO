@@ -128,6 +128,10 @@ public class TransPix extends javax.swing.JFrame {
         System.out.print("PJ");
         SistemaBancos.LoggedInUser.getBanco().pagarComPix((ContaPJ) SistemaBancos.LoggedInUser.getConta(),valorValor, contaDestino, bancoDestino);
        }
+       JOptionPane.showMessageDialog(this,"Pix realizado com sucesso" , "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+       this.dispose();
+       Home home = new Home();
+       home.setVisible(true);
  
 
 }

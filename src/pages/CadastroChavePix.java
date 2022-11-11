@@ -124,6 +124,9 @@ public class CadastroChavePix extends JFrame {
     private void setChave(java.awt.event.MouseEvent evt) {
         String chaveValor = inputValor.getText();
         SistemaBancos.LoggedInUser.getBanco().cadastrarChave(SistemaBancos.LoggedInUser.getConta(), chaveValor);
+        this.dispose();
+        CadastroChavePix reload = new CadastroChavePix();
+        reload.setVisible(true);
 
      }
  

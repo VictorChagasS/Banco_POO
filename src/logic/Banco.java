@@ -30,12 +30,19 @@ public class Banco implements Ted, Pix{
         else {
         if (valor > 0){
            conta.setSaldo(conta.getSaldo() + valor);
+           criarTransacao(conta,valor,"DEPOSITO",false);
         } 
         else {
             throw new Exception("Valor insuficiente");
         }
     }
     }
+    public void criarTransacao(Conta conta, Double valor, String tipoTransacao, Boolean envioRecebe) {
+        Transacao transacao = new Transacao(valor,tipoTransacao,envioRecebe);
+        conta.addTransacao(transacao);
+    } 
+   
+
 
     public void saque(Conta conta, double valor) throws Exception {
         if  (encontrarConta(conta.getNumeroConta())==null){
@@ -44,6 +51,7 @@ public class Banco implements Ted, Pix{
         else {
         if (valor > 0 && conta.getSaldo() >= valor) {
             conta.setSaldo(conta.getSaldo() - valor);
+            criarTransacao(conta,valor,"SAQUE",true);
         }
         else {
             throw new Exception("Valor insuficiente");
@@ -63,6 +71,9 @@ public class Banco implements Ted, Pix{
 
     @Override
     public void pagarComPix(ContaPF origem, double valor, Conta contaDestino, Banco bancoDestino) throws Exception {
+        if (origem == contaDestino) {
+            throw new Exception("Transferência para a mesma conta logada");
+        }
             saque(origem, valor);
             bancoDestino.deposito(contaDestino, valor);
     }

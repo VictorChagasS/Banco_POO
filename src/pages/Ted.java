@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package pages;
 
 import javax.swing.JOptionPane;
@@ -38,7 +34,6 @@ public class Ted extends javax.swing.JFrame {
                 ted(evt);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
-                System.out.println("434");
             }
             }
         });
