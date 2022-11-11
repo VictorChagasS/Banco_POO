@@ -190,7 +190,7 @@ public class Cadastro extends JFrame {
         Login login = new Login();
         ContaPF contaPF = new ContaPF(nomeValor,cpfValor, senhaValor, emailValor,dataNascValor);
         try {
-            SistemaBancos.register(contaPF, SistemaBancos.encontrarBanco("1010-1") );
+            SistemaBancos.register(contaPF, SistemaBancos.encontrarBanco("a") );
             this.dispose();
             login.setVisible(true);
             JOptionPane.showMessageDialog(this,"Cadastro realizado com sucesso" , "Sucesso", JOptionPane.INFORMATION_MESSAGE);

@@ -1,6 +1,9 @@
 package pages;
 import javax.swing.*;
 
+import logic.ContaPF;
+import logic.ContaPJ;
+import logic.SistemaBancos;
 import pages.componentes.*;
 
 public class CadastroJuridico extends JFrame {
@@ -15,10 +18,10 @@ public class CadastroJuridico extends JFrame {
     private void initComponents() {
         JPanel sair = new Fechar(255, 255, 255, 34, 180, 167);
         JPanel voltar = new Voltar("voltarV.png", 255,255, 255,"juridico");
-        JPanel nome = new Input("Nome","nome.png");
-        JPanel email = new Input("Email","email.png");
-        JPanel cnpj = new Input("CNPJ","user.png");
-        JPanel senha =  new Input("Senha","lock.png");
+        nome = new Input("Nome","nome.png");
+        email = new Input("Email","email.png");
+        cnpj = new Input("CNPJ","user.png");
+        senha =  new Input("Senha","lock.png");
         JPanel bancoSeletor = new Seletor();
 
         formLogin = new JPanel();
@@ -51,6 +54,12 @@ public class CadastroJuridico extends JFrame {
         criarConta.setBorderPainted(false);
         criarConta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         criarConta.setFocusPainted(false);
+        criarConta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                criarContaActionPerformed(evt);
+            }
+        });
+
         criarConta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 criarContaActionPerformed(evt);
@@ -167,11 +176,28 @@ public class CadastroJuridico extends JFrame {
         setLocationRelativeTo(null);
     }
 
+   
+     
     private void criarContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarContaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_criarContaActionPerformed
+        String nomeValor = nome.getValue();
+        int cnpjValor = Integer.parseInt(cnpj.getValue());
+        String emailValor = email.getValue();
+        String senhaValor =senha.getValue();
 
+        Login login = new Login();
+        ContaPJ conta = new ContaPJ(nomeValor,cnpjValor, senhaValor, emailValor);
+        try {
+            SistemaBancos.register(conta, SistemaBancos.encontrarBanco("a") );
+            this.dispose();
+            login.setVisible(true);
+            JOptionPane.showMessageDialog(this,"Cadastro Jurídico realizado com sucesso" , "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+
+        }
   
+    }
     public static void main(String args[]) {
    
         new CadastroChavePix().setVisible(true);
@@ -180,6 +206,10 @@ public class CadastroJuridico extends JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private Input nome;
+    private Input email;
+    private Input cnpj;
+    private Input senha;
     private JLabel Entrar;
     private JButton criarConta;
     private JLabel imagemGrande;

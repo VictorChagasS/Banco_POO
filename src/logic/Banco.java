@@ -82,12 +82,12 @@ public class Banco implements Ted, Pix{
     
   
     public void addInBank(Conta conta) throws Exception {
-        if (encontrarConta(conta.getNumeroConta()) != null){
-            System.out.println("Conta já existente no banco");
+        try {
+            encontrarConta(conta.getNumeroConta());
         }
-        else{
-        clientes.add(conta);  
-            }
+        catch(Exception e) {
+            clientes.add(conta);
+        }
     }
 
     public void RemoveInBank(Conta cliente) {
@@ -95,7 +95,7 @@ public class Banco implements Ted, Pix{
     }
 
    
-    public Conta encontrarConta(String numeroContaouChave){
+    public Conta encontrarConta(String numeroContaouChave) throws Exception{
         Iterator<Conta> clientesIterator = clientes.iterator();
         while(clientesIterator.hasNext()) {
             Conta cliente = clientesIterator.next();
@@ -103,10 +103,8 @@ public class Banco implements Ted, Pix{
                 return cliente;
             }
         }
-        return null;
-        
-       
-        
+        throw new Exception("Conta não encontrada");
+         
     }
 
 
