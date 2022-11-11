@@ -24,40 +24,43 @@ public class Banco implements Ted, Pix{
     }
 
     public void deposito(Conta conta, double valor) throws Exception{
-        if (encontrarConta(conta.getNumeroConta())==null) {
-            throw new Exception("Conta nao existe no banco");
+        checarOperacao(valor);
+        conta.setSaldo(conta.getSaldo() + valor);
+        criarTransacao(conta,valor,"DEPOSITO",false);}
+
+    
+    public void saque(Conta conta, double valor) throws Exception {
+        checarOperacao(valor);
+        if (conta.getSaldo() < valor) {
+            throw  new Exception("Valor insuficiente");
         }
-        else {
-        if (valor > 0){
-           conta.setSaldo(conta.getSaldo() + valor);
-           criarTransacao(conta,valor,"DEPOSITO",false);
-        } 
-        else {
+        conta.setSaldo(conta.getSaldo() - valor);
+        criarTransacao(conta,valor,"SAQUE",true);}
+    
+    private void checarOperacao(double valor) throws Exception {
+        if ( valor <= 0 ) {
             throw new Exception("Valor insuficiente");
         }
     }
+
+    public void checarOperacaoTransferencia(Conta origem, Conta destino, double valor) throws Exception {
+        if (origem == destino) {
+            throw new Exception("Transferência para a mesma conta logada");
+        }
+        if (origem.getSaldo() < valor) {
+            throw  new Exception("Valor insuficiente");
+        }
     }
     public void criarTransacao(Conta conta, Double valor, String tipoTransacao, Boolean envioRecebe) {
         Transacao transacao = new Transacao(valor,tipoTransacao,envioRecebe);
         conta.addTransacao(transacao);
     } 
+
+    public void criarTransacao(Conta conta, Double valor, String tipoTransacao, Boolean envioRecebe, String destinario) {
+        Transacao transacao = new Transacao(destinario,valor,tipoTransacao,envioRecebe);
+        conta.addTransacao(transacao);
+    } 
    
-
-
-    public void saque(Conta conta, double valor) throws Exception {
-        if  (encontrarConta(conta.getNumeroConta())==null){
-            throw new Exception("Conta nao existe no banco");
-        }
-        else {
-        if (valor > 0 && conta.getSaldo() >= valor) {
-            conta.setSaldo(conta.getSaldo() - valor);
-            criarTransacao(conta,valor,"SAQUE",true);
-        }
-        else {
-            throw new Exception("Valor insuficiente");
-        }
-    }
-    }
 
     @Override 
     public void cadastrarChave(Conta contaDestino, String chave) {
@@ -68,26 +71,44 @@ public class Banco implements Ted, Pix{
     public String mostrarChave(Conta conta) {
         return conta.getChave();
     }
+    
+
 
     @Override
-    public void pagarComPix(ContaPF origem, double valor, Conta contaDestino, Banco bancoDestino) throws Exception {
-        if (origem == contaDestino) {
-            throw new Exception("Transferência para a mesma conta logada");
-        }
-            saque(origem, valor);
-            bancoDestino.deposito(contaDestino, valor);
+    public void pagarComPix(ContaPJ origem, double valor, String chave, Banco bancoDestino) throws Exception {
+        Conta contaDestino = bancoDestino.encontrarConta(chave);
+        checarOperacao(valor);
+        checarOperacaoTransferencia(origem, contaDestino, valor);
+
+        origem.setSaldo(origem.getSaldo() - valor - (valor*taxaPIXPJ/100));
+        contaDestino.setSaldo(contaDestino.getSaldo() + valor);
+        criarTransacao(origem,valor,"PIX",true,contaDestino.getNome());
+        criarTransacao(contaDestino,valor,"PIX",false,origem.getNome());
     }
 
     @Override
-    public void pagarComPix(ContaPJ origem, double valor, Conta contaDestino, Banco bancoDestino) throws Exception {
-            saque(origem, valor + ((valor)*taxaPIXPJ/100));
-            bancoDestino.deposito(contaDestino,valor);
+    public void pagarComPix(ContaPF origem, double valor, String chave, Banco bancoDestino) throws Exception {
+        Conta contaDestino = bancoDestino.encontrarConta(chave);
+        checarOperacao(valor);
+        checarOperacaoTransferencia(origem, contaDestino, valor);
+
+        origem.setSaldo(origem.getSaldo() - valor);
+        contaDestino.setSaldo(contaDestino.getSaldo() + valor);
+        criarTransacao(origem,valor,"PIX",true,contaDestino.getNome());
+        criarTransacao(contaDestino,valor,"PIX",false,origem.getNome());
     }
+
     
     @Override
-    public void transferenciaTed(Conta origem,Banco bancoDestino, Conta contaDestino, double valor) throws Exception{
-        saque(origem,valor);
-        bancoDestino.deposito(contaDestino, valor);
+    public void transferenciaTed(Conta origem,Banco bancoDestino, String numeroContaDestino, double valor) throws Exception{
+        Conta contaDestino = bancoDestino.encontrarConta(numeroContaDestino);
+        checarOperacao(valor);
+        checarOperacaoTransferencia(origem, contaDestino, valor);
+
+        origem.setSaldo(origem.getSaldo() - valor);
+        contaDestino.setSaldo(contaDestino.getSaldo() + valor);
+        criarTransacao(origem,valor,"TED",true,contaDestino.getNome());
+        criarTransacao(contaDestino,valor,"TED",false,origem.getNome());
         
     }
     

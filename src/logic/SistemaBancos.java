@@ -105,11 +105,11 @@ public class SistemaBancos{
     }
    
 
-    public static Banco encontrarBanco(String agencia) throws Exception{
+    public static Banco encontrarBanco(String agencia_nome) throws Exception{
         Iterator<Banco> bancosIterator = bancos.iterator();
         while(bancosIterator.hasNext()) {
             Banco bancoAchado = bancosIterator.next();
-            if (bancoAchado.getAgencia().equals(agencia)) {
+            if (bancoAchado.getAgencia().equals(agencia_nome) || bancoAchado.getNome().equals(agencia_nome)) {
                 return bancoAchado;
             }
         }

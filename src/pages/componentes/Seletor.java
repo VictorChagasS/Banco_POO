@@ -16,7 +16,11 @@ public class Seletor extends JPanel {
     }
 
 
+    public String getValueSelector() {
+        return jComboBox1.getSelectedItem().toString();
+    }
     
+   
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -24,7 +28,6 @@ public class Seletor extends JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(34, 180, 167));
-
         
         List<String> nomesBancos = new ArrayList<>();
         for (Banco banco : SistemaBancos.bancos) {

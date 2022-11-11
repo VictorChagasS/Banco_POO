@@ -1,9 +1,9 @@
 package logic;
 
 public class ContaPJ extends Conta {
-    long cnpj;
+    String cnpj;
 
-    public ContaPJ(String nome,long cnpj, String senha,String email ) {
+    public ContaPJ(String nome,String cnpj, String senha,String email ) {
         super(nome,senha,email);
         this.cnpj = cnpj;
     }

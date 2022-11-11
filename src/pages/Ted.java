@@ -117,12 +117,12 @@ public class Ted extends javax.swing.JFrame {
         String numeroContaValor = numeroContaInput.getValue();
         Double valorValor = Double.parseDouble(valor.getValue()); 
         Banco bancoDestino = SistemaBancos.encontrarBanco(agenciaValor);
-        Conta contaDestino = SistemaBancos.encontrarConta(agenciaValor, numeroContaValor);
-        System.out.println(bancoDestino);
-        System.out.println(contaDestino);
-
-        SistemaBancos.LoggedInUser.getBanco().transferenciaTed(SistemaBancos.LoggedInUser.getConta(), bancoDestino, contaDestino, valorValor);
-
+       
+        SistemaBancos.LoggedInUser.getBanco().transferenciaTed(SistemaBancos.LoggedInUser.getConta(), bancoDestino, numeroContaValor, valorValor);
+        JOptionPane.showMessageDialog(this,"Ted realizado com sucesso" , "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+        this.dispose();
+        Home home = new Home();
+        home.setVisible(true);
     }
  
 

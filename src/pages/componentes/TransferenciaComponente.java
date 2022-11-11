@@ -26,6 +26,7 @@ public class TransferenciaComponente extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
+        String icone = "extratoIcone";
         String mais_menos = null;
         String mensagem = null;
         String cor = null;
@@ -37,18 +38,45 @@ public class TransferenciaComponente extends javax.swing.JPanel {
                 mais_menos = "+";
                 cor = "verde";
                 mensagem = "Depósito realizado";
+                icone = "extratoDeposito";
                 break;
             case "SAQUE":
                 mais_menos = "-";
                 cor = "vermelho";
                 mensagem = "Saque realizado";
-          
+                icone = "extratoSaque";
+                break;
+        case "TED":
+            if (transacao.getEnvio_Recebe()) {
+                mais_menos = "-";
+                cor = "vermelho";
+                mensagem = "Ted realizado";
+            }
+            else {
+                mais_menos = "+";
+                cor = "verde";
+                mensagem = "Ted recebido";
+            }
+        break;
+        case "PIX":
+        icone = "pixExtrato";
+        if (transacao.getEnvio_Recebe()) {
+            mais_menos = "-";
+            cor = "vermelho";
+            mensagem = "Pix realizado";
+        }
+        else {
+            mais_menos = "+";
+            cor = "verde";
+            mensagem = "Pix recebido";
+        }
+        break;
         }
 
      
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pages/icons/extratoIcone.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pages/icons/"+icone+".png"))); // NOI18N
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -60,7 +88,7 @@ public class TransferenciaComponente extends javax.swing.JPanel {
         jLabel3.setText(mensagem);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel4.setText(transacao.getUsuario());
+        jLabel4.setText(transacao.getDestino());
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N

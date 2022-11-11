@@ -9,27 +9,26 @@ public class Main{
               
 
         
-
-        System.out.println(RandomNumeroConta.gerarNumeroConta());
     
 
-        Banco banco1 = new Banco("SANTANDER", "a", 3);
-        Banco banco2 = new Banco("BRADESCO", "b", 3);
-        Banco banco3 = new Banco("BABATUE", "c", 3);
-        SistemaBancos.add(banco1);
-        SistemaBancos.add(banco2);
-        SistemaBancos.add(banco3);
+        Banco sant = new Banco("Santander", "033", 3);
+        Banco brad = new Banco("Bradesco", "237", 3);
+        Banco itau = new Banco("Itaú", "0500", 3);
+        SistemaBancos.add(sant);
+        SistemaBancos.add(brad);
+        SistemaBancos.add(itau);
 
 
        
-        ContaPF gui1 = new ContaPF("Victor",1234,"j","g",28112002);
-        ContaPF i1 = new ContaPF("Gui",12354,"1","j",28112002);
+        ContaPF victor = new ContaPF("Victor Chagas","01234567891","123","victor@santander.com",28112002);
+        ContaPF gui = new ContaPF("Guilherme Argolo","01234564391","0101","gui@itau.com",28112002);
 
        
-       System.out.println(i1.getNumeroConta());
+        System.out.println(victor.getNumeroConta());
+        System.out.println(gui.getNumeroConta());
       
-        SistemaBancos.register(gui1, banco2);
-        SistemaBancos.register(i1, banco3);
+        SistemaBancos.register(victor, sant);
+        SistemaBancos.register(gui, itau);
 
        
        

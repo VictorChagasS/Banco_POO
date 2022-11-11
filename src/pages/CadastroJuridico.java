@@ -1,6 +1,7 @@
 package pages;
 import javax.swing.*;
 
+import logic.Banco;
 import logic.ContaPJ;
 import logic.SistemaBancos;
 import pages.componentes.*;
@@ -21,7 +22,7 @@ public class CadastroJuridico extends JFrame {
         email = new Input("Email","email.png");
         cnpj = new Input("CNPJ","user.png");
         senha =  new Input("Senha","lock.png");
-        JPanel bancoSeletor = new Seletor();
+        bancoSeletor = new Seletor();
 
         formLogin = new JPanel();
         Entrar = new JLabel();
@@ -173,14 +174,16 @@ public class CadastroJuridico extends JFrame {
      
     private void criarContaPJ(java.awt.event.ActionEvent evt) {
         String nomeValor = nome.getValue();
-        long cnpjValor = Long.parseLong(cnpj.getValue());
+        String cnpjValor = cnpj.getValue();
         String emailValor = email.getValue();
         String senhaValor =senha.getValue();
+        String bancoNome = bancoSeletor.getValueSelector();
 
         Login login = new Login();
         ContaPJ conta = new ContaPJ(nomeValor,cnpjValor, senhaValor, emailValor);
         try {
-            SistemaBancos.register(conta, SistemaBancos.encontrarBanco("a") );
+            Banco banco = SistemaBancos.encontrarBanco(bancoNome);
+            SistemaBancos.register(conta,banco);
             this.dispose();
             login.setVisible(true);
             JOptionPane.showMessageDialog(this,"Cadastro Jurídica realizado com sucesso" , "Sucesso", JOptionPane.INFORMATION_MESSAGE);
@@ -200,6 +203,7 @@ public class CadastroJuridico extends JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Input nome;
+    private Seletor bancoSeletor;
     private Input email;
     private Input cnpj;
     private Input senha;

@@ -50,7 +50,7 @@ public class Home extends javax.swing.JFrame {
         carteiraIcone.setText("R$");
 
         saldo.setFont(new java.awt.Font("Segoe UI", 1, 32));
-        String saldoValor =new DecimalFormat("###,###.00").format(SistemaBancos.LoggedInUser.getConta().getSaldo());
+        String saldoValor =new DecimalFormat("###,##0.00").format(SistemaBancos.LoggedInUser.getConta().getSaldo());
         saldo.setText(saldoValor);
 
         nomeBanco.setFont(new java.awt.Font("Segoe UI", 1, 32));

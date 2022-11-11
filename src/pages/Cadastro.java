@@ -23,13 +23,11 @@ public class Cadastro extends JFrame {
         dataNasc = new Input("Data de nascimento","calendario.png");
         email =  new Input("Email","email.png");
         senha =  new Input("Senha","lock.png");
-
         
-
         formLogin = new JPanel();
         Entrar = new JLabel();
         criarConta = new JButton();
-        JPanel bancoSeletor = new Seletor();
+        bancoSeletor = new Seletor();
         telaImagem = new JPanel();
         imagemGrande = new JLabel();
         textoCrieCadastro = new JLabel();
@@ -182,7 +180,8 @@ public class Cadastro extends JFrame {
     
     private void criarContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarContaActionPerformed
         String nomeValor = nome.getValue();
-        long cpfValor = Long.parseLong(cpf.getValue());
+        String cpfValor = cpf.getValue();
+        String bancoNome = bancoSeletor.getValueSelector();
         String emailValor = email.getValue();
         String senhaValor =senha.getValue();
         int dataNascValor = Integer.parseInt(dataNasc.getValue().replace("/", ""));
@@ -190,7 +189,8 @@ public class Cadastro extends JFrame {
         Login login = new Login();
         ContaPF contaPF = new ContaPF(nomeValor,cpfValor, senhaValor, emailValor,dataNascValor);
         try {
-            SistemaBancos.register(contaPF, SistemaBancos.encontrarBanco("a") );
+            Banco banco = SistemaBancos.encontrarBanco(bancoNome);
+            SistemaBancos.register(contaPF, banco);
             this.dispose();
             login.setVisible(true);
             JOptionPane.showMessageDialog(this,"Cadastro realizado com sucesso" , "Sucesso", JOptionPane.INFORMATION_MESSAGE);
@@ -213,6 +213,7 @@ public class Cadastro extends JFrame {
     private Input email;
     private Input dataNasc;
     private Input senha;
+    private Seletor bancoSeletor;
 
     private JLabel Entrar;
     private JButton criarConta;

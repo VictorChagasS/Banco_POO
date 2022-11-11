@@ -4,7 +4,7 @@ import java.text.*;
 import java.util.Date;
 
 public class Transacao {
-    private String usuario;
+    private String destino;
     private String tipoTransacao;
     private boolean envio_Recebe; //ENVIO true, RECEBE false
     String data; 
@@ -16,9 +16,16 @@ public class Transacao {
         this.envio_Recebe = envio_Recebe;
         data = getDateTime();
     }
+    public Transacao(String destino, double valor, String tipoTransacao, boolean envio_Recebe) {
+        this.destino = destino;
+        this.valor = valor;
+        this.tipoTransacao = tipoTransacao;
+        this.envio_Recebe = envio_Recebe;
+        data = getDateTime();
+    }
 
-    public String getUsuario() {
-        return usuario;
+    public String getDestino() {
+        return destino;
     }
     public double getValor() {
         return valor;
