@@ -23,7 +23,7 @@ public class Voltar extends JPanel {
         sair.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         sair.setForeground(new java.awt.Color(34, 180, 167));
         sair.setHorizontalAlignment(SwingConstants.CENTER);
-        sair.setIcon(new ImageIcon(getClass().getResource("../icons/"+icone))); // NOI18N
+        sair.setIcon(new ImageIcon(getClass().getResource("/pages/icons/"+icone))); // NOI18N
         
         sair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         this.addMouseListener(new java.awt.event.MouseAdapter() {

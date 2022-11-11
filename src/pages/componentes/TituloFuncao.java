@@ -17,7 +17,7 @@ public class TituloFuncao extends JPanel {
         iconeFucao = new JLabel();
         texto = new JLabel();
         setBackground(new java.awt.Color(255, 255, 255));
-        iconeFucao.setIcon(new ImageIcon(getClass().getResource("../icons/"+icone))); // NOI18N
+        iconeFucao.setIcon(new ImageIcon(getClass().getResource("/pages/icons/"+icone))); // NOI18N
         texto.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
         texto.setForeground(new java.awt.Color(34, 180, 167));
         texto.setText(nome);
