@@ -2,15 +2,15 @@ package logic;
 
 public class LoggedInUser
 {
-    private static Conta loggedAcount;
-    private static Banco loggedBank;
+    private  Conta loggedAcount;
+    private  Banco loggedBank;
     
-    public static Conta getConta() {
+    public  Conta getConta() {
         return loggedAcount;
     }
     
 
-    public static Banco getBanco() {
+    public  Banco getBanco() {
         return loggedBank;
     }
 
@@ -21,7 +21,7 @@ public class LoggedInUser
 
     }
 
-    public static void deslogar() {
+    public void deslogar() {
         loggedAcount = null;
     }
    

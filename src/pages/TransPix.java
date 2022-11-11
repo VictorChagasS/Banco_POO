@@ -9,10 +9,6 @@ import logic.ContaPJ;
 import logic.SistemaBancos;
 import pages.componentes.*;
 
-/**
- *
- * @author victo
- */
 public class TransPix extends javax.swing.JFrame {
 
     public TransPix() {
