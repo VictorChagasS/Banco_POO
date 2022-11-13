@@ -16,7 +16,7 @@ public class Main{
 
        
         ContaPF victor = new ContaPF("Victor Chagas","01234567891","123","victor@banco0.com","28/11/2002");
-        ContaPF gui = new ContaPF("Guilherme Argolo","01234564391","0101","gui@banco1.com","28/11/2002");
+        ContaPF gui = new ContaPF("Guilherme Argolo","01234564391","0101","gui@banco1.com","24/02/2002");
         ContaPJ comicBook = new ContaPJ("Comic Store Book", "03.778.130/0001-48", "gibi12", "comic@banco2.com");
 
        
