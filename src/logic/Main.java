@@ -7,9 +7,9 @@ public class Main{
             
                 new Login().setVisible(true);
     
-        Banco banese = new Banco("Banese", "033", 3);
-        Banco brad = new Banco("Bradesco", "237", 3);
-        Banco itau = new Banco("Itaú", "0500", 3);
+        Banco banese = new Banco("Banco 0", "033", 3);
+        Banco brad = new Banco("Banco 1", "237", 3);
+        Banco itau = new Banco("Banco 2", "0500", 3);
         SistemaBancos.add(banese);
         SistemaBancos.add(brad);
         SistemaBancos.add(itau);
