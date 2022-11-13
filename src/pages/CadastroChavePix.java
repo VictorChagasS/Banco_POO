@@ -41,11 +41,13 @@ public class CadastroChavePix extends JFrame {
         inputValor.setFont(new java.awt.Font("Segoe UI", 1, 30));
        
         telaTotal.setBackground(new java.awt.Color(255, 255, 255));
-        textoMinhaChave.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        textoMinhaChave.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         textoMinhaChave.setText("Minha chave:");
 
-        chave.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        chave.setFont(new java.awt.Font("Segoe UI", 0, 28)); // NOI18N
         chave.setText(SistemaBancos.LoggedInUser.getConta().mostrarChave());
+
+        
         textoCadastreChave.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         textoCadastreChave.setText("Cadastre sua chave");
 
@@ -69,7 +71,7 @@ public class CadastroChavePix extends JFrame {
                                 .addGroup(telaTotalLayout.createSequentialGroup()
                                     .addComponent(textoMinhaChave)
                                     .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(chave, GroupLayout.PREFERRED_SIZE, 155, GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(chave, GroupLayout.PREFERRED_SIZE, 280, GroupLayout.PREFERRED_SIZE))
                                 .addComponent(textoCadastreChave, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(botao, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(130, Short.MAX_VALUE))

@@ -184,7 +184,7 @@ public class Cadastro extends JFrame {
         String bancoNome = bancoSeletor.getValueSelector();
         String emailValor = email.getValue();
         String senhaValor =senha.getValue();
-        int dataNascValor = Integer.parseInt(dataNasc.getValue().replace("/", ""));
+        String dataNascValor = dataNasc.getValue();
 
         Login login = new Login();
         ContaPF contaPF = new ContaPF(nomeValor,cpfValor, senhaValor, emailValor,dataNascValor);

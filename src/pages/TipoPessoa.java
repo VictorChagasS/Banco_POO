@@ -31,7 +31,7 @@ public class TipoPessoa extends JFrame {
         setUndecorated(true);
 
         container.setBackground(new java.awt.Color(34, 180, 167));
-        porcoIcone.setIcon(new ImageIcon(getClass().getResource("icons/piggy-bank (2) (1).png"))); // NOI18N
+        porcoIcone.setIcon(new ImageIcon(getClass().getResource("icons/piggy-bank.png"))); // NOI18N
 
         titulo.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
         titulo.setForeground(new java.awt.Color(255, 255, 255));
@@ -48,7 +48,7 @@ public class TipoPessoa extends JFrame {
         });
 
         jLabel4.setHorizontalAlignment(SwingConstants.CENTER);
-        jLabel4.setIcon(new ImageIcon(getClass().getResource("icons/balance (4) 1 (1).png"))); // NOI18N
+        jLabel4.setIcon(new ImageIcon(getClass().getResource("icons/balance.png"))); // NOI18N
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));

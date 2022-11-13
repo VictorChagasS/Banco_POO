@@ -24,7 +24,7 @@ public class SistemaBancosTest {
     @Test
     public void logInSucesso() throws Exception {
         Banco banco1 = new Banco("bancoTeste", "00", 20);
-        ContaPF usuarioTest = new ContaPF("Luffy","12384281241","123","luffy@banco.com",28112002);
+        ContaPF usuarioTest = new ContaPF("Luffy","12384281241","123","luffy@banco.com","28/11/2002");
         SistemaBancos.register(usuarioTest, banco1);
         LoggedInUser logado = SistemaBancos.logIn(usuarioTest.getEmail(), usuarioTest.getSenha());
         assertEquals(usuarioTest.getEmail(), logado.getConta().getEmail());

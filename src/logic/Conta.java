@@ -61,9 +61,6 @@ public abstract class Conta implements Ted, Pix{
         return saldo;
     }
 
-    public Integer getDataNasc(){
-        return null;
-    }
 
     @Override
     public void cadastrarChave(String chavePix) {

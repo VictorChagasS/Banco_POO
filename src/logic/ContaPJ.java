@@ -9,6 +9,10 @@ public class ContaPJ extends Conta {
         cartao.setLimite(6000);
     }
 
+    public String getCNPJ() {
+        return cnpj;
+    }
+
     @Override
     public void pagarComPix(double valor, Conta contaDestino, Banco bancoDestino) throws Exception {
         checarOperacao(valor);

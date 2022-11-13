@@ -13,7 +13,7 @@ public class Deposito extends JFrame {
     private void initComponents() {
 
       
-        JPanel telaTotal = new TelaFuncional("Deposito","deposito.png","Depositar","Coloque o valor do deposito");
+        JPanel telaTotal = new TelaFuncional("Depósito","deposito.png","Depositar","Coloque o valor do depósito");
         JPanel menuEsq = new MenuLateral();
         
         

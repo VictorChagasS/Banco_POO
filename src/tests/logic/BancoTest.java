@@ -8,7 +8,7 @@ public class BancoTest {
     @Test
     public void contaAchadaSucesso() throws Exception {
         Banco banco1 = new Banco("bancoTeste", "00", 20);
-        ContaPF usuarioTest = new ContaPF("Luffy","12384281241","123","luffy@banco.com",28112002);
+        ContaPF usuarioTest = new ContaPF("Luffy","12384281241","123","luffy@banco.com","28/11/2002");
         banco1.addInBank(usuarioTest);
         Conta contaAchada = banco1.encontrarConta("luffy@banco.com");
 
@@ -18,7 +18,7 @@ public class BancoTest {
     @Test
     public void contaNaoEncontrada() throws Exception {
         Banco banco1 = new Banco("bancoTeste", "00", 20);
-        ContaPF usuarioTest = new ContaPF("Luffy","12384281241","123","luffy@banco.com",28112002);
+        ContaPF usuarioTest = new ContaPF("Luffy","12384281241","123","luffy@banco.com","28/11/2002");
         banco1.addInBank(usuarioTest);
     
         Exception exception = assertThrows(
@@ -31,7 +31,7 @@ public class BancoTest {
     @Test
     public void adicionandoContaDuasVezes() throws Exception {
         Banco banco1 = new Banco("bancoTeste", "00", 20);
-        ContaPF usuarioTest = new ContaPF("Luffy","12384281241","123","luffy@banco.com",28112002);
+        ContaPF usuarioTest = new ContaPF("Luffy","12384281241","123","luffy@banco.com","28/11/2002");
         banco1.addInBank(usuarioTest);
     
         Exception exception = assertThrows(
@@ -45,7 +45,7 @@ public class BancoTest {
     @Test
     public void adicionadoComSucesso() throws Exception {
         Banco banco1 = new Banco("bancoTeste", "00", 20);
-        ContaPF usuarioTest = new ContaPF("Luffy","12384281241","123","luffy@banco.com",28112002);
+        ContaPF usuarioTest = new ContaPF("Luffy","12384281241","123","luffy@banco.com","28/11/2002");
         try {
         banco1.addInBank(usuarioTest);
         }

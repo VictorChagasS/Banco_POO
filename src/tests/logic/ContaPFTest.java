@@ -14,7 +14,7 @@ public class ContaPFTest {
 
     @Test
     public void depositoNegativo() throws Exception {
-        ContaPF usuarioTest = new ContaPF("Luffy","12384281241","123","luffy@banco.com",28112002);
+        ContaPF usuarioTest = new ContaPF("Luffy","12384281241","123","luffy@banco.com","28/11/2002");
 
         Exception exception = assertThrows(
                 Exception.class,
@@ -25,7 +25,7 @@ public class ContaPFTest {
 
     @Test
     public void saqueExcedido() throws Exception {
-        ContaPF usuarioTest = new ContaPF("Luffy","12384281241","123","luffy@banco.com",28112002);
+        ContaPF usuarioTest = new ContaPF("Luffy","12384281241","123","luffy@banco.com","28/11/2002");
         usuarioTest.setSaldo(900);
         Exception exception = assertThrows(
                 Exception.class,
@@ -36,15 +36,15 @@ public class ContaPFTest {
 
     @Test
     public void saqueSucesso() throws Exception {
-        ContaPF usuarioTest = new ContaPF("Luffy","12384281241","123","luffy@banco.com",28112002);
+        ContaPF usuarioTest = new ContaPF("Luffy","12384281241","123","luffy@banco.com","28/11/2002");
         usuarioTest.setSaldo(900);
         usuarioTest.saque(500);
         assertEquals(400, usuarioTest.getSaldo(),0.2);
 }
     @Test
     public void transferenciaSucesso() throws Exception {
-        ContaPF usuarioTest = new ContaPF("Luffy","12384281241","123","luffy@banco.com",28112002);
-        ContaPF destino = new ContaPF("Zoro","91384281241","1234","zoro@banco.com",28052002);
+        ContaPF usuarioTest = new ContaPF("Luffy","12384281241","123","luffy@banco.com","28/11/2002");
+        ContaPF destino = new ContaPF("Zoro","91384281241","1234","zoro@banco.com","28/05/2002");
         usuarioTest.setSaldo(30);
         destino.setSaldo(0);
         Banco banco1 = new Banco("banco1", "00", 2);
@@ -59,8 +59,8 @@ public class ContaPFTest {
 
     @Test
     public void pixSemTaxa() throws Exception {
-        ContaPF usuarioTest = new ContaPF("Luffy","12384281241","123","luffy@banco.com",28112002);
-        ContaPF destino = new ContaPF("Zoro","91384281241","1234","zoro@banco.com",11112000);
+        ContaPF usuarioTest = new ContaPF("Luffy","12384281241","123","luffy@banco.com","28/11/2002");
+        ContaPF destino = new ContaPF("Zoro","91384281241","1234","zoro@banco.com","11/11/2000");
         usuarioTest.setSaldo(30);
         destino.setSaldo(0);
         Banco banco1 = new Banco("banco1", "00", 10);

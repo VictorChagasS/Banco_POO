@@ -5,6 +5,7 @@ import javax.swing.*;
 import logic.ContaPF;
 import logic.SistemaBancos;
 import pages.Login;
+import pages.Usuario;
 
 
 public class MenuLateral extends JPanel {
@@ -61,6 +62,12 @@ public class MenuLateral extends JPanel {
         icone.setForeground(new java.awt.Color(255, 255, 255));
         icone.setHorizontalAlignment(SwingConstants.CENTER);
         icone.setIcon(new ImageIcon(getClass().getResource("/pages/icons/userMenor.png"))); // NOI18N
+        icone.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        icone.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iconClick(evt);
+            }
+        });
 
         agencia.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         agencia.setForeground(new java.awt.Color(255, 255, 255));
@@ -137,11 +144,18 @@ public class MenuLateral extends JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
 
+    private void iconClick(java.awt.event.MouseEvent evt) {                                  
+        Usuario usuarioInfo = new Usuario();
+        SwingUtilities.getWindowAncestor(this).dispose();
+        usuarioInfo.setVisible(true);
+    }     
     
     private void sairMouseClicked(java.awt.event.MouseEvent evt) {                                  
+
         Login login = new Login();
         SwingUtilities.getWindowAncestor(this).dispose();
         login.setVisible(true);
+        SistemaBancos.LoggedInUser.deslogar();
     }                                 
 
 

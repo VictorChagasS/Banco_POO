@@ -2,18 +2,17 @@ package logic;
 
 public class ContaPF extends Conta {
     String cpf;
-    int dataNasc;
+    String dataNasc;
     
 
-    public ContaPF(String nome,String cpf, String senha, String email,int dataNasc ) {
+    public ContaPF(String nome,String cpf, String senha, String email,String dataNasc ) {
         super(nome,senha,email);
         this.cpf = cpf;
         this.dataNasc = dataNasc;
         cartao.setLimite(1500);
     }
 
-    @Override
-    public Integer getDataNasc() {
+    public String getDataNasc() {
         return dataNasc;
     }
 

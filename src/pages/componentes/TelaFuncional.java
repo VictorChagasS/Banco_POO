@@ -108,7 +108,7 @@ public class TelaFuncional extends JPanel {
         Double valor = Double.parseDouble(inputValor.getText()); 
         Home home;
         switch(tela){
-            case "Deposito":
+            case "Depósito":
                 SistemaBancos.LoggedInUser.getConta().deposito(valor);
                 JOptionPane.showMessageDialog(this,"Depósito realizado com sucesso" , "Sucesso", JOptionPane.INFORMATION_MESSAGE);
                 home = new Home();
