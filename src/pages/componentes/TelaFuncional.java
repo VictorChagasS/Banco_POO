@@ -109,7 +109,7 @@ public class TelaFuncional extends JPanel {
         Home home;
         switch(tela){
             case "Deposito":
-                SistemaBancos.LoggedInUser.getBanco().deposito(SistemaBancos.LoggedInUser.getConta(), valor);
+                SistemaBancos.LoggedInUser.getConta().deposito(valor);
                 JOptionPane.showMessageDialog(this,"Depósito realizado com sucesso" , "Sucesso", JOptionPane.INFORMATION_MESSAGE);
                 home = new Home();
                 SwingUtilities.getWindowAncestor(this).dispose();
@@ -118,7 +118,7 @@ public class TelaFuncional extends JPanel {
     
                 break;
             case "Saque":
-                SistemaBancos.LoggedInUser.getBanco().saque(SistemaBancos.LoggedInUser.getConta(), valor);
+                SistemaBancos.LoggedInUser.getConta().saque(valor);
                 JOptionPane.showMessageDialog(this,"Saque realizado com sucesso" , "Sucesso", JOptionPane.INFORMATION_MESSAGE);
                 home = new Home();
                 SwingUtilities.getWindowAncestor(this).dispose();

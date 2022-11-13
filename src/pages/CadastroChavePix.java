@@ -45,7 +45,7 @@ public class CadastroChavePix extends JFrame {
         textoMinhaChave.setText("Minha chave:");
 
         chave.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        chave.setText(SistemaBancos.LoggedInUser.getBanco().mostrarChave(SistemaBancos.LoggedInUser.getConta()));
+        chave.setText(SistemaBancos.LoggedInUser.getConta().mostrarChave());
         textoCadastreChave.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         textoCadastreChave.setText("Cadastre sua chave");
 
@@ -123,7 +123,7 @@ public class CadastroChavePix extends JFrame {
  
     private void setChave(java.awt.event.MouseEvent evt) {
         String chaveValor = inputValor.getText();
-        SistemaBancos.LoggedInUser.getBanco().cadastrarChave(SistemaBancos.LoggedInUser.getConta(), chaveValor);
+        SistemaBancos.LoggedInUser.getConta().cadastrarChave(chaveValor);
         this.dispose();
         CadastroChavePix reload = new CadastroChavePix();
         reload.setVisible(true);

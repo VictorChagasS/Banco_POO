@@ -116,9 +116,9 @@ public class Ted extends javax.swing.JFrame {
         String agenciaValor = agenciaInput.getValue();
         String numeroContaValor = numeroContaInput.getValue();
         Double valorValor = Double.parseDouble(valor.getValue()); 
-        Banco bancoDestino = SistemaBancos.encontrarBanco(agenciaValor);
+        Conta contaDestino = SistemaBancos.encontrarConta(agenciaValor, numeroContaValor);
        
-        SistemaBancos.LoggedInUser.getBanco().transferenciaTed(SistemaBancos.LoggedInUser.getConta(), bancoDestino, numeroContaValor, valorValor);
+        SistemaBancos.LoggedInUser.getConta().transferenciaTed(contaDestino, valorValor);
         JOptionPane.showMessageDialog(this,"Ted realizado com sucesso" , "Sucesso", JOptionPane.INFORMATION_MESSAGE);
         this.dispose();
         Home home = new Home();

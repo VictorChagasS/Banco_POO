@@ -8,6 +8,18 @@ public class SistemaBancos{
     public static HashMap<String,Pair> contasRegistradas = new HashMap<String,Pair>();
     public static ArrayList<Banco> bancos = new ArrayList<Banco>();
 
+    public static boolean checkBanco(String agencia) {
+        Iterator<Banco> bancosIterator = bancos.iterator();
+        while(bancosIterator.hasNext()) {
+            Banco bancoAchado = bancosIterator.next();
+            if (bancoAchado.getAgencia().equals(agencia)) {
+                return true;
+            }
+        }
+        return false;
+    }
+   
+
     public static void add(Banco banco) {
         if (checkBanco(banco.getAgencia())) {
             System.out.println("Essa agencia ja esta cadastrada");
@@ -55,7 +67,7 @@ public class SistemaBancos{
 
     public static Pair encontrarChavePix(String chave) throws Exception{
         for (Pair value : contasRegistradas.values()) {
-            if (value.conta.getChave().equals(chave)) {
+            if (value.conta.mostrarChave().equals(chave)) {
 
                 Pair pair = new Pair(value.banco, value.conta);
                 return pair;
@@ -65,17 +77,7 @@ public class SistemaBancos{
     }
 
 
-    public static boolean checkBanco(String agencia) {
-        Iterator<Banco> bancosIterator = bancos.iterator();
-        while(bancosIterator.hasNext()) {
-            Banco bancoAchado = bancosIterator.next();
-            if (bancoAchado.getAgencia().equals(agencia)) {
-                return true;
-            }
-        }
-        return false;
-    }
-   
+  
 
     public static Banco encontrarBanco(String agencia_nome) throws Exception{
         Iterator<Banco> bancosIterator = bancos.iterator();

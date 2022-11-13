@@ -19,7 +19,7 @@ public class Extrato extends javax.swing.JFrame {
         tituloFuncao = new TituloFuncao("Extrato", "extrato.png");
         voltar = new Voltar("voltarV.png",255, 255, 255,"Extrato");
         jPanel1 = new PainelTransferencias(SistemaBancos.LoggedInUser.getConta().getTransacoes());
-
+       
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);

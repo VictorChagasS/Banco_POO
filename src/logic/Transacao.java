@@ -4,19 +4,19 @@ import java.text.*;
 import java.util.Date;
 
 public class Transacao {
-    private String destino;
+    private Conta destino;
     private String tipoTransacao;
     private boolean envio_Recebe; //ENVIO true, RECEBE false
     String data; 
     private double valor;
 
-    public Transacao( double valor, String tipoTransacao, boolean envio_Recebe) {
+    public Transacao(double valor, String tipoTransacao, boolean envio_Recebe) {
         this.valor = valor;
         this.tipoTransacao = tipoTransacao;
         this.envio_Recebe = envio_Recebe;
         data = getDateTime();
     }
-    public Transacao(String destino, double valor, String tipoTransacao, boolean envio_Recebe) {
+    public Transacao(Conta destino, double valor, String tipoTransacao, boolean envio_Recebe) {
         this.destino = destino;
         this.valor = valor;
         this.tipoTransacao = tipoTransacao;
@@ -24,7 +24,7 @@ public class Transacao {
         data = getDateTime();
     }
 
-    public String getDestino() {
+    public Conta getDestino() {
         return destino;
     }
     public double getValor() {

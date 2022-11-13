@@ -27,8 +27,8 @@ public class PainelTransferencias extends JPanel {
       outerWrapperPanel.setBackground(new java.awt.Color(255, 255, 255));
     
 
-   Iterator<Transacao> countriesIterator = transacoes.iterator();
-      
+    Iterator<Transacao> countriesIterator = transacoes.iterator();
+   
 
     while(countriesIterator.hasNext()) {
       Transacao transcao = countriesIterator.next();

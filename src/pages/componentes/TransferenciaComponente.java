@@ -27,6 +27,7 @@ public class TransferenciaComponente extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
 
         String icone = "extratoIcone";
+        String destino = null;
         String mais_menos = null;
         String mensagem = null;
         String cor = null;
@@ -47,6 +48,7 @@ public class TransferenciaComponente extends javax.swing.JPanel {
                 icone = "extratoSaque";
                 break;
         case "TED":
+            destino = transacao.getDestino().getNome();
             if (transacao.getEnvio_Recebe()) {
                 mais_menos = "-";
                 cor = "vermelho";
@@ -59,6 +61,7 @@ public class TransferenciaComponente extends javax.swing.JPanel {
             }
         break;
         case "PIX":
+        destino = transacao.getDestino().getNome();
         icone = "pixExtrato";
         if (transacao.getEnvio_Recebe()) {
             mais_menos = "-";
@@ -88,7 +91,7 @@ public class TransferenciaComponente extends javax.swing.JPanel {
         jLabel3.setText(mensagem);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel4.setText(transacao.getDestino());
+        jLabel4.setText(destino);
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N

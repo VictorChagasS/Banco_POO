@@ -4,8 +4,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import logic.Banco;
-import logic.ContaPF;
-import logic.ContaPJ;
+import logic.Conta;
+import logic.Pair;
 import logic.SistemaBancos;
 import pages.componentes.*;
 
@@ -112,16 +112,13 @@ public class TransPix extends javax.swing.JFrame {
 
     private void pixPagar(java.awt.event.MouseEvent evt) throws Exception {//GEN-FIRST:event_jPanel2MouseClicked
        String chaveValor = chave.getValue();
+       
        Double valorValor = Double.parseDouble(valor.getValue());
-       Banco bancoDestino = SistemaBancos.encontrarChavePix(chaveValor).banco;
-       if (SistemaBancos.LoggedInUser.getConta() instanceof ContaPF){
-        System.out.print("PF");
-       SistemaBancos.LoggedInUser.getBanco().pagarComPix((ContaPF) SistemaBancos.LoggedInUser.getConta(),valorValor, chaveValor, bancoDestino);
-       }
-       else {
-        System.out.print("PJ");
-        SistemaBancos.LoggedInUser.getBanco().pagarComPix((ContaPJ) SistemaBancos.LoggedInUser.getConta(),valorValor, chaveValor, bancoDestino);
-       }
+       Pair infosDestino = SistemaBancos.encontrarChavePix(chaveValor);
+       Conta destino = infosDestino.conta;
+       Banco bancoDestino = infosDestino.banco;
+      
+       SistemaBancos.LoggedInUser.getConta().pagarComPix(valorValor,destino, bancoDestino);
        JOptionPane.showMessageDialog(this,"Pix realizado com sucesso" , "Sucesso", JOptionPane.INFORMATION_MESSAGE);
        this.dispose();
        Home home = new Home();
