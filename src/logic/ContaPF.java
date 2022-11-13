@@ -9,6 +9,7 @@ public class ContaPF extends Conta {
         super(nome,senha,email);
         this.cpf = cpf;
         this.dataNasc = dataNasc;
+        cartao.setLimite(1500);
     }
 
     @Override

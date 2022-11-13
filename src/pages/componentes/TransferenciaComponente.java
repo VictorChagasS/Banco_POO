@@ -33,7 +33,7 @@ public class TransferenciaComponente extends javax.swing.JPanel {
         String cor = null;
         String[] dataFull = transacao.getData().split(" ");
         String data = dataFull[0];
-        String horario = dataFull[1].substring(0,5);
+        String horario = dataFull[1];
         switch(transacao.getTipoTransacao()) {
             case "DEPOSITO":
                 mais_menos = "+";

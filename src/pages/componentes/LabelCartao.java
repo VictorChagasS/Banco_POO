@@ -18,6 +18,7 @@ public class LabelCartao extends JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
 
         ComponenteCartao.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(34, 180, 167));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N

@@ -5,7 +5,7 @@ public class LoggedInUser
     private  Conta loggedAcount;
     private  Banco loggedBank;
     
-    public  Conta getConta() {
+    public Conta getConta() {
         return loggedAcount;
     }
     

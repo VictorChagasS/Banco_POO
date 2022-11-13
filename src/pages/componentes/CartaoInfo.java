@@ -1,8 +1,10 @@
 package pages.componentes;
 
+import java.text.NumberFormat;
+
 import javax.swing.*;
 
-import logic.SistemaBancos;
+import logic.*;
 
 
 public class CartaoInfo extends JPanel {
@@ -13,12 +15,14 @@ public class CartaoInfo extends JPanel {
 
 
     private void initComponents() {
+        LoggedInUser user = SistemaBancos.LoggedInUser;
+        Cartao cartaoLogado = user.getConta().getCartao();
 
-        JPanel titular = new LabelCartao("Nome do titular","");
-        JPanel numeroCartao =  new LabelCartao("Numero do cartão",SistemaBancos.LoggedInUser.getConta().getCartao().getNumeroCartao());
-        JPanel validade =  new LabelCartao("Validade","");
-        JPanel cvv =  new LabelCartao("CVV","");
-        JPanel limite =  new LabelCartao("Limite do cartão","");
+        JPanel titular = new LabelCartao("Nome do titular",cartaoLogado.getTitular());
+        JPanel numeroCartao =  new LabelCartao("Numero do cartão",cartaoLogado.getNumeroCartao());
+        JPanel validade =  new LabelCartao("Validade",cartaoLogado.geValidade());
+        JPanel cvv =  new LabelCartao("CVV",cartaoLogado.getCVV());
+        JPanel limite =  new LabelCartao("Limite do cartão",NumberFormat.getCurrencyInstance().format(cartaoLogado.getLimite()));
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(new javax.swing.border.LineBorder(new java.awt.Color(173, 188, 187), 2, true));

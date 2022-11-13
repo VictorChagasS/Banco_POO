@@ -2,13 +2,12 @@ package logic;
 import java.util.Random;
 
 public class RandomNumeroConta {
+    
     public static String gerarNumeroCartao()   {
         Random value = new Random();
-        String start = "";
-    
-   
+    String start = "";
     int count = 0;
-    int n = 0;
+    int n;
     for(int i =0; i < 16;i++)
     {
         if(count == 4)
@@ -16,7 +15,6 @@ public class RandomNumeroConta {
             start += " ";
             count =0;
         }
-        else 
             n = value.nextInt(10);
             start += Integer.toString(n);
             count++;            
@@ -34,5 +32,14 @@ public class RandomNumeroConta {
         }
         conta += "-"+Integer.toString(value.nextInt(10));
         return conta;
+    }
+
+    public static String gerarCVV() {
+        String cvv="";
+        Random value = new Random();
+        for(int i=0; i<3;i++) {
+            cvv+= Integer.toString(value.nextInt(10));
+        }
+        return cvv;
     }
 }

@@ -57,6 +57,20 @@ public class ContaPFTest {
 
     }
 
+    @Test
+    public void pixSemTaxa() throws Exception {
+        ContaPF usuarioTest = new ContaPF("Luffy","12384281241","123","luffy@banco.com",28112002);
+        ContaPF destino = new ContaPF("Zoro","91384281241","1234","zoro@banco.com",11112000);
+        usuarioTest.setSaldo(30);
+        destino.setSaldo(0);
+        Banco banco1 = new Banco("banco1", "00", 10);
+        banco1.addInBank(usuarioTest);
+        Banco banco2 = new Banco("banco2", "25", 2);
+        banco2.addInBank(destino);
+        usuarioTest.pagarComPix(20, destino, banco2);
+        assertEquals(10, usuarioTest.getSaldo(),0.2);
+        assertEquals(20, destino.getSaldo(),0.2);
+    }
 
 
 

@@ -6,6 +6,7 @@ public class ContaPJ extends Conta {
     public ContaPJ(String nome,String cnpj, String senha,String email ) {
         super(nome,senha,email);
         this.cnpj = cnpj;
+        cartao.setLimite(6000);
     }
 
     @Override

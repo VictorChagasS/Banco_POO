@@ -5,7 +5,7 @@ import java.util.*;
 
 public class SistemaBancos{
     public static LoggedInUser LoggedInUser;
-    public static HashMap<String,Pair> contasRegistradas = new HashMap<String,Pair>();
+    public static HashMap<String,Par> contasRegistradas = new HashMap<String,Par>();
     public static ArrayList<Banco> bancos = new ArrayList<Banco>();
 
     public static boolean checkBanco(String agencia) {
@@ -37,7 +37,7 @@ public class SistemaBancos{
         }
         else {
             banco.addInBank(conta);
-            Pair par = new Pair(banco, conta);
+            Par par = new Par(banco, conta);
             contasRegistradas.put(conta.getEmail(),par);
     
         }
@@ -65,11 +65,11 @@ public class SistemaBancos{
         return bancoAchado.encontrarConta(numeroConta_chave);
     }
 
-    public static Pair encontrarChavePix(String chave) throws Exception{
-        for (Pair value : contasRegistradas.values()) {
+    public static Par encontrarChavePix(String chave) throws Exception{
+        for (Par value : contasRegistradas.values()) {
             if (value.conta.mostrarChave().equals(chave)) {
 
-                Pair pair = new Pair(value.banco, value.conta);
+                Par pair = new Par(value.banco, value.conta);
                 return pair;
             }
         } 

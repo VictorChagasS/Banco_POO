@@ -9,7 +9,7 @@ public abstract class Conta implements Ted, Pix{
     private String senha;
     private String email;
     private String numeroConta;
-    private Cartao cartao;
+    protected Cartao cartao;
     private ArrayList<Transacao> transacoes = new ArrayList<Transacao>();
     private String nome;
     
@@ -20,9 +20,9 @@ public abstract class Conta implements Ted, Pix{
         this.numeroConta = RandomNumeroConta.gerarNumeroConta();
         this.email = email;
         this.senha = senha;
-        cartao = new Cartao();
-        cartao.setNumeroCartao(RandomNumeroConta.gerarNumeroCartao());
+        cartao = new Cartao(RandomNumeroConta.gerarNumeroCartao(), nome);
     }
+
 
     public Cartao getCartao() {
         return cartao;

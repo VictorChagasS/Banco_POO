@@ -14,7 +14,6 @@ public class Cartao extends JFrame {
     private void initComponents() {
 
         JPanel menuEsq = new MenuLateral();
-      
         telaTotal = new JPanel();
         JPanel voltar = new Voltar("voltarV.png", 255,255, 255,"cartao");
         tituloCartao = new TituloFuncao("Cartão", "cartao.png");
@@ -23,7 +22,7 @@ public class Cartao extends JFrame {
     
 
         TituloInfoCartao.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
-        TituloInfoCartao.setText("Informacoes do cartao");
+        TituloInfoCartao.setText("Informacões do cartão");
 
        
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

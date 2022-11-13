@@ -5,7 +5,7 @@ import javax.swing.JPanel;
 
 import logic.Banco;
 import logic.Conta;
-import logic.Pair;
+import logic.Par;
 import logic.SistemaBancos;
 import pages.componentes.*;
 
@@ -18,7 +18,6 @@ public class TransPix extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-       
         telaTotal = new javax.swing.JPanel();
         JPanel voltar = new Voltar("voltarV.png", 255,255, 255,"TransPix");
         JPanel menuEsq = new MenuLateral();
@@ -114,7 +113,7 @@ public class TransPix extends javax.swing.JFrame {
        String chaveValor = chave.getValue();
        
        Double valorValor = Double.parseDouble(valor.getValue());
-       Pair infosDestino = SistemaBancos.encontrarChavePix(chaveValor);
+       Par infosDestino = SistemaBancos.encontrarChavePix(chaveValor);
        Conta destino = infosDestino.conta;
        Banco bancoDestino = infosDestino.banco;
       

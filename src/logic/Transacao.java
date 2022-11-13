@@ -1,7 +1,8 @@
 package logic;
 
-import java.text.*;
-import java.util.Date;
+import java.time.format.DateTimeFormatter;  
+import java.time.LocalDateTime;  
+
 
 public class Transacao {
     private Conta destino;
@@ -14,15 +15,17 @@ public class Transacao {
         this.valor = valor;
         this.tipoTransacao = tipoTransacao;
         this.envio_Recebe = envio_Recebe;
-        data = getDateTime();
+        data = criarData();
     }
     public Transacao(Conta destino, double valor, String tipoTransacao, boolean envio_Recebe) {
         this.destino = destino;
         this.valor = valor;
         this.tipoTransacao = tipoTransacao;
         this.envio_Recebe = envio_Recebe;
-        data = getDateTime();
+        data = criarData();
     }
+
+    
 
     public Conta getDestino() {
         return destino;
@@ -42,10 +45,10 @@ public class Transacao {
         return envio_Recebe;
     }
 
-    private String getDateTime() {
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        Date date = new Date();
-        return dateFormat.format(date);
+    private String criarData() {
+        DateTimeFormatter dataFormato = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");  
+        LocalDateTime dataAtual = LocalDateTime.now();  
+        return dataFormato.format(dataAtual);
     }
 
    
